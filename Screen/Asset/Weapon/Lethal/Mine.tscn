@@ -1,0 +1,69 @@
+[gd_scene load_steps=10 format=3 uid="uid://ccrbgjuh2n2fq"]
+
+[ext_resource type="Script" path="res://Script/Equipment/Throw/Mine.gd" id="1_k75ru"]
+[ext_resource type="PackedScene" uid="uid://b62oc04ai6iwg" path="res://Screen/Asset/Function/Trail.tscn" id="2_lg045"]
+[ext_resource type="Texture2D" uid="uid://btwhw20sq7ckb" path="res://Asset/Weapon/Nade.png" id="3_tg3yb"]
+[ext_resource type="Texture2D" uid="uid://brqdfh75m07tt" path="res://Asset/Texture/Effect/CircleBig2.png" id="5_bgoef"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_pp3aa"]
+bounce = 0.5
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_q6x0e"]
+size = Vector2(50, 12)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_khjoq"]
+size = Vector2(400, 200)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_bp61f"]
+radius = 32.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_p1ovc"]
+radius = 32.1403
+
+[node name="Mine" type="RigidBody2D"]
+collision_layer = 2
+collision_mask = 4
+physics_material_override = SubResource("PhysicsMaterial_pp3aa")
+lock_rotation = true
+script = ExtResource("1_k75ru")
+
+[node name="Trail" parent="." instance=ExtResource("2_lg045")]
+width = 20.0
+default_color = Color(0.7, 0.7, 0.7, 1)
+lenght = 20
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("3_tg3yb")
+hframes = 4
+vframes = 2
+frame = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 1)
+shape = SubResource("RectangleShape2D_q6x0e")
+
+[node name="Circle2" type="Sprite2D" parent="."]
+texture = ExtResource("5_bgoef")
+
+[node name="Detect" type="ShapeCast2D" parent="."]
+position = Vector2(0, -100)
+enabled = false
+shape = SubResource("RectangleShape2D_khjoq")
+target_position = Vector2(0, 0)
+collision_mask = 4
+collide_with_areas = true
+collide_with_bodies = false
+
+[node name="Land" type="ShapeCast2D" parent="."]
+shape = SubResource("CircleShape2D_bp61f")
+target_position = Vector2(0, 0)
+collision_mask = 16
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_p1ovc")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

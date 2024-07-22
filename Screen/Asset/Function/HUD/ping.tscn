@@ -1,0 +1,84 @@
+[gd_scene load_steps=7 format=3 uid="uid://m0ha7j5eu1ms"]
+
+[ext_resource type="Script" path="res://Script/Function/HUD/ping.gd" id="2_b35p8"]
+[ext_resource type="Texture2D" uid="uid://c0dt8as47d70j" path="res://Asset/UI/HUD_Icon/Ping.png" id="2_o040g"]
+[ext_resource type="FontFile" uid="uid://ckkg14tkp6d06" path="res://Asset/UI/Font/Jura-Bold.ttf" id="3_owtba"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_sj8l3"]
+light_mode = 1
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_6swoo"]
+radius = 20.0
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_fiojt"]
+light_mode = 1
+
+[node name="Ping" type="Area2D" groups=["mark"]]
+visibility_layer = 3
+z_index = 5
+material = SubResource("CanvasItemMaterial_sj8l3")
+collision_layer = 8
+collision_mask = 0
+script = ExtResource("2_b35p8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visibility_layer = 3
+shape = SubResource("CircleShape2D_6swoo")
+
+[node name="Sprite2D" type="Sprite2D" parent="CollisionShape2D"]
+z_index = 10
+material = SubResource("CanvasItemMaterial_fiojt")
+texture = ExtResource("2_o040g")
+hframes = 2
+
+[node name="Label" type="Label" parent="CollisionShape2D/Sprite2D"]
+use_parent_material = true
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -96.0
+offset_top = 20.0
+offset_right = 32.0
+offset_bottom = 53.0
+grow_horizontal = 2
+pivot_offset = Vector2(64, 0)
+theme_override_colors/font_color = Color(0.698039, 0.698039, 0.698039, 1)
+theme_override_fonts/font = ExtResource("3_owtba")
+theme_override_font_sizes/font_size = 24
+text = "100m"
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="Sprite2D2" type="Sprite2D" parent="CollisionShape2D"]
+visibility_layer = 2
+z_index = 10
+material = SubResource("CanvasItemMaterial_fiojt")
+scale = Vector2(10, 10)
+texture = ExtResource("2_o040g")
+hframes = 2
+
+[node name="Label" type="Label" parent="CollisionShape2D/Sprite2D2"]
+visibility_layer = 2
+use_parent_material = true
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -96.0
+offset_top = 20.0
+offset_right = 32.0
+offset_bottom = 53.0
+grow_horizontal = 2
+pivot_offset = Vector2(64, 0)
+theme_override_colors/font_color = Color(0.698039, 0.698039, 0.698039, 1)
+theme_override_fonts/font = ExtResource("3_owtba")
+theme_override_font_sizes/font_size = 24
+text = "100m"
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="Timer" type="Timer" parent="."]
+
+[node name="OnScreen" type="VisibleOnScreenNotifier2D" parent="."]
+rect = Rect2(-256, -256, 512, 512)
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

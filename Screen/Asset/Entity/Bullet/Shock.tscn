@@ -1,0 +1,215 @@
+[gd_scene load_steps=15 format=3 uid="uid://geka8qrk60qy"]
+
+[ext_resource type="Script" path="res://Script/Entity/Bullet/Shock.gd" id="1_amwk8"]
+[ext_resource type="Texture2D" uid="uid://dsbd1i4hhctae" path="res://Asset/Texture/Effect/Thunder.png" id="2_u3sv7"]
+[ext_resource type="Texture2D" uid="uid://c6hj1xh4rosyi" path="res://Asset/Texture/Effect/CircleBig.png" id="3_5iwky"]
+[ext_resource type="Texture2D" uid="uid://bixpmuk7cmnm" path="res://Asset/Texture/Effect/FilledBigHexagon.png" id="3_cmaqf"]
+[ext_resource type="Texture2D" uid="uid://c51cs7ts3cuai" path="res://Asset/Texture/Effect/BigHexagon.png" id="4_tat1s"]
+[ext_resource type="Shader" path="res://Script/Function/Shader/shockwave.gdshader" id="6_sacmy"]
+
+[sub_resource type="Curve" id="Curve_y2g24"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.249027, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="Gradient" id="Gradient_c85q0"]
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 0)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_sd65k"]
+radius = 512.0
+
+[sub_resource type="Animation" id="Animation_2y1yv"]
+resource_name = "Process"
+length = 60.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ShockWave:material:shader_parameter/curve:curve:point_3/position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.5, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0.3, 0), Vector2(0.3, 0), Vector2(0.5, 0), Vector2(0.5, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ShockWave:material:shader_parameter/curve:curve:point_2/position")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.5, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, -0.1), Vector2(0.5, 0), Vector2(0.5, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("ShockWave:material:shader_parameter/curve:curve:point_1/position")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.5, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, 0), Vector2(0.48, 0), Vector2(0.48, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Effect/Circle:scale")
+tracks/3/interp = 2
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(1, 1), Vector2(1, 1), Vector2(0, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Effect/Circle2:scale")
+tracks/4/interp = 2
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(1, 1), Vector2(2, 2)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Effect/Circle2:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0.2, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Effect/Circle:modulate")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0.1, 0.2, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Collision:scale")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(1, 1), Vector2(0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_eu78i"]
+_data = {
+"Process": SubResource("Animation_2y1yv")
+}
+
+[sub_resource type="Curve" id="Curve_vhsgf"]
+min_value = -1.0
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.48, 0), 0.0, 0.0, 0, 0, Vector2(0.5, 0), 0.0, 0.0, 0, 0, Vector2(0.5, 0), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 5
+
+[sub_resource type="CurveTexture" id="CurveTexture_i34co"]
+width = 1048
+curve = SubResource("Curve_vhsgf")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ndcnv"]
+shader = ExtResource("6_sacmy")
+shader_parameter/force = null
+shader_parameter/curve = SubResource("CurveTexture_i34co")
+
+[node name="Shock" type="RigidBody2D"]
+collision_layer = 0
+collision_mask = 2
+gravity_scale = 0.0
+freeze = true
+freeze_mode = 1
+script = ExtResource("1_amwk8")
+
+[node name="Particles" type="CPUParticles2D" parent="."]
+emitting = false
+amount = 100
+one_shot = true
+speed_scale = 2.0
+explosiveness = 1.0
+lifetime_randomness = 0.5
+spread = 180.0
+gravity = Vector2(0, 245)
+initial_velocity_min = 500.0
+initial_velocity_max = 600.0
+angular_velocity_min = -90.0
+angular_velocity_max = 90.0
+angle_min = -720.0
+angle_max = 720.0
+scale_amount_min = 10.0
+scale_amount_max = 20.0
+scale_amount_curve = SubResource("Curve_y2g24")
+
+[node name="Particles2" type="CPUParticles2D" parent="."]
+emitting = false
+amount = 20
+one_shot = true
+speed_scale = 2.0
+explosiveness = 1.0
+lifetime_randomness = 0.5
+texture = ExtResource("2_u3sv7")
+spread = 180.0
+gravity = Vector2(0, 245)
+initial_velocity_min = 300.0
+initial_velocity_max = 600.0
+angular_velocity_min = -90.0
+angular_velocity_max = 90.0
+angle_min = -720.0
+angle_max = 720.0
+color_ramp = SubResource("Gradient_c85q0")
+
+[node name="Effect" type="Node2D" parent="."]
+modulate = Color(0.560784, 0.560784, 0.560784, 0.784314)
+
+[node name="Circle" type="Sprite2D" parent="Effect"]
+modulate = Color(1, 1, 1, 0)
+scale = Vector2(1e-05, 1e-05)
+texture = ExtResource("3_cmaqf")
+
+[node name="Circle2" type="Sprite2D" parent="Effect"]
+modulate = Color(1, 1, 1, 0)
+scale = Vector2(2, 2)
+texture = ExtResource("4_tat1s")
+
+[node name="Collision" type="CollisionShape2D" parent="."]
+visible = false
+scale = Vector2(1e-05, 1e-05)
+shape = SubResource("CircleShape2D_sd65k")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_eu78i")
+}
+
+[node name="ShockWave" type="Sprite2D" parent="."]
+z_index = 5
+material = SubResource("ShaderMaterial_ndcnv")
+scale = Vector2(5, 5)
+texture = ExtResource("3_5iwky")
+
+[node name="Timer" type="Timer" parent="."]
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

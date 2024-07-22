@@ -1,0 +1,89 @@
+[gd_scene load_steps=11 format=3 uid="uid://dkaoqf6px7or8"]
+
+[ext_resource type="Script" path="res://Script/Entity/Bullet/Bullet.gd" id="1_vtayh"]
+[ext_resource type="PackedScene" uid="uid://b62oc04ai6iwg" path="res://Screen/Asset/Function/Trail.tscn" id="2_c6gtw"]
+[ext_resource type="Texture2D" uid="uid://d1bif8ysyd2yn" path="res://Asset/Texture/Effect/Thermite.png" id="3_lhbif"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_qk871"]
+rough = true
+absorbent = true
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ib0qb"]
+radius = 15.0
+height = 70.0
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_e36v3"]
+light_mode = 1
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7demk"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_ppphj"]
+light_mode = 1
+
+[sub_resource type="Curve" id="Curve_5y8aw"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.957198, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Gradient" id="Gradient_j7mku"]
+offsets = PackedFloat32Array(0.412811, 1)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
+[node name="Bullet" type="RigidBody2D" groups=["bullet"]]
+z_index = -1
+collision_layer = 4
+collision_mask = 0
+physics_material_override = SubResource("PhysicsMaterial_qk871")
+gravity_scale = 0.0
+max_contacts_reported = 30
+contact_monitor = true
+script = ExtResource("1_vtayh")
+
+[node name="Collision" type="CollisionShape2D" parent="."]
+z_index = -1
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_ib0qb")
+
+[node name="Trail" parent="." instance=ExtResource("2_c6gtw")]
+material = SubResource("CanvasItemMaterial_e36v3")
+position = Vector2(25, 0)
+lenght = 10
+
+[node name="Cast" type="ShapeCast2D" parent="."]
+shape = SubResource("RectangleShape2D_7demk")
+target_position = Vector2(0, 0)
+collision_mask = 16
+
+[node name="Hit" type="Marker2D" parent="."]
+
+[node name="Fire" type="CPUParticles2D" parent="."]
+material = SubResource("CanvasItemMaterial_ppphj")
+amount = 50
+speed_scale = 2.0
+lifetime_randomness = 0.5
+texture = ExtResource("3_lhbif")
+emission_shape = 1
+emission_sphere_radius = 10.0
+direction = Vector2(0, -1)
+spread = 180.0
+gravity = Vector2(0, 98)
+initial_velocity_min = 100.0
+initial_velocity_max = 200.0
+angular_velocity_min = -720.0
+angular_velocity_max = 720.0
+angle_min = -720.0
+angle_max = 720.0
+scale_amount_min = 2.0
+scale_amount_max = 6.0
+scale_amount_curve = SubResource("Curve_5y8aw")
+color_ramp = SubResource("Gradient_j7mku")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 5
+collision_mask = 0
+
+[node name="Collision" type="CollisionShape2D" parent="Area2D"]
+z_index = -1
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_ib0qb")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

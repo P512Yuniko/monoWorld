@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=3 uid="uid://04luos2b6g43"]
+
+[ext_resource type="Script" path="res://Script/Entity/Droping/Piece.gd" id="1_srocy"]
+[ext_resource type="Texture2D" uid="uid://du2q8v06hrmb" path="res://Asset/Texture/Effect/Piece.png" id="2_r5rtf"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_rj5t3"]
+bounce = 0.2
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tudbf"]
+size = Vector2(30, 30)
+
+[node name="RigidBody2D" type="RigidBody2D"]
+collision_layer = 2
+collision_mask = 4
+physics_material_override = SubResource("PhysicsMaterial_rj5t3")
+script = ExtResource("1_srocy")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_r5rtf")
+hframes = 2
+vframes = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_tudbf")
+
+[node name="On_screen" type="VisibleOnScreenNotifier2D" parent="."]

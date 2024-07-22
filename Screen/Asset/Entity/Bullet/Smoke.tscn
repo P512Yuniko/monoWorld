@@ -1,0 +1,39 @@
+[gd_scene load_steps=5 format=3 uid="uid://cg8bc32i41uty"]
+
+[ext_resource type="Texture2D" uid="uid://c6hj1xh4rosyi" path="res://Asset/Texture/Effect/CircleBig.png" id="3_rvaky"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_y47g4"]
+radius = 30.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_j4h1g"]
+radius = 50.0
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_st2dx"]
+polygon = PackedVector2Array(44, -44, 0.154099, -51.4695, -43, -43, -51.4802, 0.208572, -42, 42, 0.0442047, 52.411, 41, 45, 52.1605, 0.0667191)
+
+[node name="Smoke" type="RigidBody2D"]
+z_index = 5
+collision_layer = 512
+collision_mask = 528
+mass = 0.1
+gravity_scale = 0.5
+max_contacts_reported = 1
+contact_monitor = true
+linear_damp = 10.0
+
+[node name="Collision" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_y47g4")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(0.7, 0.7, 0.7, 1)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("3_rvaky")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_j4h1g")
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="."]
+occluder = SubResource("OccluderPolygon2D_st2dx")

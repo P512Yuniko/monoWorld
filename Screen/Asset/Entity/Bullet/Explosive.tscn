@@ -1,0 +1,273 @@
+[gd_scene load_steps=18 format=3 uid="uid://c1b87uxwhvr53"]
+
+[ext_resource type="Script" path="res://Script/Entity/Bullet/Explosive.gd" id="1_63wav"]
+[ext_resource type="AudioStream" uid="uid://dogytnt5ewo0p" path="res://Asset/Weapon/Sound/Explosion.mp3" id="2_1u31s"]
+[ext_resource type="Texture2D" uid="uid://0ec7pv1cihxj" path="res://Asset/Weapon/Light.png" id="4_fqqdd"]
+[ext_resource type="Texture2D" uid="uid://d1bif8ysyd2yn" path="res://Asset/Texture/Effect/Thermite.png" id="4_jvtab"]
+[ext_resource type="Texture2D" uid="uid://c6hj1xh4rosyi" path="res://Asset/Texture/Effect/CircleBig.png" id="5_vgsql"]
+[ext_resource type="Texture2D" uid="uid://brqdfh75m07tt" path="res://Asset/Texture/Effect/CircleBig2.png" id="5_wvgtv"]
+[ext_resource type="Shader" path="res://Script/Function/Shader/shockwave.gdshader" id="6_7rja7"]
+
+[sub_resource type="Curve" id="Curve_7agwx"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.195513, 1), 0.0, 0.0, 0, 0, Vector2(0.647436, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="Gradient" id="Gradient_umd1u"]
+offsets = PackedFloat32Array(0, 0.469751, 1)
+colors = PackedColorArray(1, 1, 1, 1, 0.529412, 0.529412, 0.529412, 1, 0, 0, 0, 0)
+
+[sub_resource type="Gradient" id="Gradient_v5bqp"]
+offsets = PackedFloat32Array(0.647687, 1)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_mc6c1"]
+
+[sub_resource type="Animation" id="Animation_2y1yv"]
+resource_name = "Process"
+length = 100.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ShockWave:material:shader_parameter/curve:curve:point_3/position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.5, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0.3, 0), Vector2(0.3, 0), Vector2(0.5, 0), Vector2(0.5, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ShockWave:material:shader_parameter/curve:curve:point_2/position")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.5, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, -0.1), Vector2(0.5, 0), Vector2(0.5, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("ShockWave:material:shader_parameter/curve:curve:point_1/position")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.5, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, 0), Vector2(0.48, 0), Vector2(0.48, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".:dmg_range")
+tracks/3/interp = 2
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0, 10, 0]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Effect/Circle:scale")
+tracks/4/interp = 2
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(1, 1), Vector2(1, 1), Vector2(0, 0)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Effect/Circle2:scale")
+tracks/5/interp = 2
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(1, 1), Vector2(2, 2)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Effect/Circle2:modulate")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0.2, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Effect/Circle:modulate")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0.1, 0.2, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Collision:disabled")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("Area2D/Collision:disabled")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_eu78i"]
+_data = {
+"Process": SubResource("Animation_2y1yv")
+}
+
+[sub_resource type="Curve" id="Curve_wjcbx"]
+min_value = -1.0
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.48, 0), 0.0, 0.0, 0, 0, Vector2(0.5, 0), 0.0, 0.0, 0, 0, Vector2(0.5, 0), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 5
+
+[sub_resource type="CurveTexture" id="CurveTexture_i34co"]
+width = 1048
+curve = SubResource("Curve_wjcbx")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_y61xn"]
+shader = ExtResource("6_7rja7")
+shader_parameter/force = null
+shader_parameter/curve = SubResource("CurveTexture_i34co")
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_weybj"]
+
+[node name="Explosive" type="RigidBody2D" groups=["bullet", "danger"]]
+collision_layer = 516
+collision_mask = 0
+mass = 5.0
+gravity_scale = 0.0
+max_contacts_reported = 20
+lock_rotation = true
+freeze = true
+freeze_mode = 1
+script = ExtResource("1_63wav")
+
+[node name="Audio" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_1u31s")
+max_distance = 10000.0
+bus = &"Sound"
+
+[node name="Particles" type="CPUParticles2D" parent="."]
+emitting = false
+amount = 100
+one_shot = true
+explosiveness = 1.0
+texture = ExtResource("5_vgsql")
+spread = 180.0
+gravity = Vector2(0, -980)
+initial_velocity_max = 1500.0
+scale_amount_min = 0.05
+scale_amount_max = 0.5
+scale_amount_curve = SubResource("Curve_7agwx")
+color = Color(1, 1, 1, 0.392157)
+color_ramp = SubResource("Gradient_umd1u")
+
+[node name="Particles2" type="CPUParticles2D" parent="."]
+emitting = false
+amount = 200
+one_shot = true
+explosiveness = 1.0
+texture = ExtResource("4_jvtab")
+spread = 180.0
+gravity = Vector2(0, -980)
+initial_velocity_max = 1500.0
+angular_velocity_min = -90.0
+angular_velocity_max = 90.0
+angle_min = -90.0
+angle_max = 90.0
+scale_amount_max = 8.0
+scale_amount_curve = SubResource("Curve_7agwx")
+color_ramp = SubResource("Gradient_v5bqp")
+
+[node name="Particles3" type="CPUParticles2D" parent="."]
+emitting = false
+amount = 100
+one_shot = true
+explosiveness = 1.0
+spread = 180.0
+initial_velocity_max = 1500.0
+angular_velocity_min = -90.0
+angular_velocity_max = 90.0
+angle_min = -90.0
+angle_max = 90.0
+scale_amount_min = 20.0
+scale_amount_max = 40.0
+scale_amount_curve = SubResource("Curve_7agwx")
+color = Color(0.44, 0.44, 0.44, 1)
+color_ramp = SubResource("Gradient_v5bqp")
+
+[node name="Effect" type="Node2D" parent="."]
+scale = Vector2(2.4, 2.4)
+
+[node name="Circle" type="Sprite2D" parent="Effect"]
+modulate = Color(1, 1, 1, 0)
+scale = Vector2(1e-05, 1e-05)
+texture = ExtResource("5_vgsql")
+
+[node name="Circle2" type="Sprite2D" parent="Effect"]
+modulate = Color(1, 1, 1, 0)
+scale = Vector2(2, 2)
+texture = ExtResource("5_wvgtv")
+
+[node name="Collision" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_mc6c1")
+disabled = true
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+shadow_enabled = true
+texture = ExtResource("4_fqqdd")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_eu78i")
+}
+
+[node name="ShockWave" type="Sprite2D" parent="."]
+z_index = 5
+material = SubResource("ShaderMaterial_y61xn")
+scale = Vector2(10, 10)
+texture = ExtResource("5_vgsql")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_mask = 0
+
+[node name="Collision" type="CollisionShape2D" parent="Area2D"]
+scale = Vector2(1e-05, 1e-05)
+shape = SubResource("CircleShape2D_weybj")
+disabled = true

@@ -1,0 +1,73 @@
+[gd_scene load_steps=10 format=3 uid="uid://b5tdqu7ri3l5s"]
+
+[ext_resource type="Script" path="res://Script/Entity/Slash/CbladeThrust.gd" id="1_5bgoa"]
+[ext_resource type="Texture2D" uid="uid://4lmwtt7wod3w" path="res://Asset/Weapon/CBlade.png" id="2_n7fk8"]
+[ext_resource type="Texture2D" uid="uid://do7hivaserslc" path="res://Asset/Texture/Effect/hrombus.png" id="3_lhwvr"]
+[ext_resource type="PackedScene" uid="uid://b62oc04ai6iwg" path="res://Screen/Asset/Function/Trail.tscn" id="4_c63ti"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_nnj5u"]
+radius = 37.0
+height = 198.0
+
+[sub_resource type="Curve" id="Curve_f6nq2"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Gradient" id="Gradient_d0ocf"]
+offsets = PackedFloat32Array(0, 0.10177, 0.659176, 1)
+colors = PackedColorArray(0.878431, 0.878431, 0.878431, 0, 1, 1, 1, 1, 0, 0, 0, 0.392157, 0, 0, 0, 0)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_y1i5w"]
+radius = 37.0
+height = 128.0
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_1lwjp"]
+light_mode = 1
+
+[node name="CBlade" type="RigidBody2D" groups=["slash"]]
+collision_layer = 4
+collision_mask = 16
+gravity_scale = 0.0
+max_contacts_reported = 1
+contact_monitor = true
+lock_rotation = true
+linear_damp = 12.0
+script = ExtResource("1_5bgoa")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+position = Vector2(0, -37)
+shape = SubResource("CapsuleShape2D_nnj5u")
+
+[node name="CBlade" type="Sprite2D" parent="."]
+rotation = -3.14159
+scale = Vector2(-1, 1)
+texture = ExtResource("2_n7fk8")
+offset = Vector2(0, 36)
+hframes = 3
+
+[node name="Blade" type="CPUParticles2D" parent="CBlade"]
+visible = false
+position = Vector2(16, 111)
+amount = 100
+speed_scale = 3.0
+texture = ExtResource("3_lhwvr")
+spread = 0.0
+gravity = Vector2(0, 0)
+scale_amount_curve = SubResource("Curve_f6nq2")
+color_ramp = SubResource("Gradient_d0ocf")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, -57)
+shape = SubResource("CapsuleShape2D_y1i5w")
+
+[node name="Trail" parent="." instance=ExtResource("4_c63ti")]
+material = SubResource("CanvasItemMaterial_1lwjp")
+position = Vector2(0, -116)
+width = 20.0
+lenght = 10
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

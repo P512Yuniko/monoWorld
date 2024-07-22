@@ -1,0 +1,34 @@
+[gd_scene load_steps=4 format=3 uid="uid://bnca801ncaoo7"]
+
+[ext_resource type="Script" path="res://Script/Entity/Effect/Glitch.gd" id="1_y3ksb"]
+[ext_resource type="PackedScene" uid="uid://b62oc04ai6iwg" path="res://Screen/Asset/Function/Trail.tscn" id="2_cdp26"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_rgql4"]
+
+[node name="CPUParticles2D" type="RigidBody2D"]
+collision_layer = 0
+collision_mask = 0
+gravity_scale = 0.0
+linear_damp = 2.0
+script = ExtResource("1_y3ksb")
+
+[node name="Effect" type="CPUParticles2D" parent="."]
+amount = 100
+lifetime = 2.0
+lifetime_randomness = 0.5
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_max = 10.0
+scale_amount_min = 10.0
+scale_amount_max = 50.0
+color = Color(0, 0, 0, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_rgql4")
+disabled = true
+
+[node name="Trail" parent="." instance=ExtResource("2_cdp26")]
+modulate = Color(0, 0, 0, 1)
+width = 20.0
+joint_mode = 1
+lenght = 200

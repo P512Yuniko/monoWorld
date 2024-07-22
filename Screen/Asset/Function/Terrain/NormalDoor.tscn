@@ -1,0 +1,81 @@
+[gd_scene load_steps=7 format=3 uid="uid://ct1gcxuka24q6"]
+
+[ext_resource type="Script" path="res://Script/Function/Terrain/Door.gd" id="7_no0cw"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_h6j0e"]
+bounce = 0.2
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7uk71"]
+size = Vector2(20, 512)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3c2us"]
+size = Vector2(200, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cg5c8"]
+size = Vector2(256, 512)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bk5ow"]
+
+[node name="Door" type="RigidBody2D" groups=["Door", "Interact"]]
+z_index = -4
+collision_layer = 15
+collision_mask = 15
+physics_material_override = SubResource("PhysicsMaterial_h6j0e")
+max_contacts_reported = 5
+contact_monitor = true
+freeze = true
+freeze_mode = 1
+script = ExtResource("7_no0cw")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchors_preset = -1
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -10.0
+offset_top = -499.0
+offset_right = 10.0
+offset_bottom = 1.0
+grow_horizontal = 0
+grow_vertical = 2
+pivot_offset = Vector2(20, 0)
+color = Color(0.7, 0.7, 0.7, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -256)
+shape = SubResource("RectangleShape2D_7uk71")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+position = Vector2(-90, -502)
+shape = SubResource("RectangleShape2D_3c2us")
+one_way_collision = true
+one_way_collision_margin = 8.0
+
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2(0, -256)
+collision_layer = 8
+collision_mask = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_cg5c8")
+
+[node name="ColorRect" type="ColorRect" parent="Area2D/CollisionShape2D"]
+anchors_preset = -1
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -10.0
+offset_top = -256.0
+offset_right = 10.0
+offset_bottom = 256.0
+grow_horizontal = 0
+grow_vertical = 2
+pivot_offset = Vector2(10, 0)
+color = Color(0.7, 0.7, 0.7, 1)
+
+[node name="ShapeCast2D" type="ShapeCast2D" parent="."]
+position = Vector2(84, -466)
+shape = SubResource("RectangleShape2D_bk5ow")
+target_position = Vector2(0, 440)
+
+[connection signal="body_entered" from="." to="." method="_on_door_body_entered"]

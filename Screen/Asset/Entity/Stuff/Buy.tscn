@@ -1,0 +1,82 @@
+[gd_scene load_steps=5 format=3 uid="uid://ijfdtdawlkff"]
+
+[ext_resource type="Script" path="res://Script/Equipment/Loot/Buy.gd" id="1_or258"]
+[ext_resource type="Texture2D" uid="uid://ck732w4sbopso" path="res://Asset/Weapon/Buy.png" id="2_xg1hh"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_b1ld7"]
+size = Vector2(127, 84)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ewleq"]
+radius = 100.0
+
+[node name="Crate" type="RigidBody2D" groups=["Interact", "buystation"]]
+collision_layer = 0
+collision_mask = 8
+script = ExtResource("1_or258")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -22)
+texture = ExtResource("2_xg1hh")
+vframes = 3
+frame = 2
+
+[node name="Sprite2D2" type="Sprite2D" parent="Sprite2D"]
+position = Vector2(0, -64)
+texture = ExtResource("2_xg1hh")
+vframes = 3
+
+[node name="Sprite2D8" type="Sprite2D" parent="Sprite2D/Sprite2D2"]
+z_index = -1
+position = Vector2(0, 79)
+scale = Vector2(1, 2)
+texture = ExtResource("2_xg1hh")
+vframes = 10
+frame = 2
+
+[node name="Sprite2D3" type="Sprite2D" parent="Sprite2D"]
+show_behind_parent = true
+position = Vector2(0, -16)
+texture = ExtResource("2_xg1hh")
+vframes = 3
+frame = 1
+
+[node name="Sprite2D4" type="Sprite2D" parent="Sprite2D"]
+show_behind_parent = true
+position = Vector2(0, -32)
+texture = ExtResource("2_xg1hh")
+vframes = 3
+frame = 1
+
+[node name="Sprite2D5" type="Sprite2D" parent="Sprite2D"]
+show_behind_parent = true
+position = Vector2(0, -48)
+texture = ExtResource("2_xg1hh")
+vframes = 3
+frame = 1
+
+[node name="Sprite2D6" type="Sprite2D" parent="Sprite2D"]
+show_behind_parent = true
+position = Vector2(0, -64)
+texture = ExtResource("2_xg1hh")
+vframes = 3
+frame = 1
+
+[node name="Sprite2D7" type="Sprite2D" parent="Sprite2D"]
+show_behind_parent = true
+position = Vector2(0, -80)
+texture = ExtResource("2_xg1hh")
+vframes = 3
+frame = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_b1ld7")
+
+[node name="Area2D" type="Area2D" parent="."]
+visible = false
+collision_layer = 8
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_ewleq")
+
+[node name="Node2D" type="Node2D" parent="."]

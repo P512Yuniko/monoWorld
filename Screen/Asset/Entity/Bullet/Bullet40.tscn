@@ -1,0 +1,48 @@
+[gd_scene load_steps=7 format=3 uid="uid://bdipono8pg6sb"]
+
+[ext_resource type="Script" path="res://Script/Entity/Bullet/Bullet40.gd" id="1_smk0g"]
+[ext_resource type="PackedScene" uid="uid://b62oc04ai6iwg" path="res://Screen/Asset/Function/Trail.tscn" id="2_n470i"]
+[ext_resource type="AudioStream" uid="uid://balyvkl38n2ps" path="res://Asset/Weapon/Sound/40mmfly.mp3" id="3_b62rs"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_qk871"]
+rough = true
+absorbent = true
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_5jeir"]
+radius = 30.0
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_mtfes"]
+light_mode = 1
+
+[node name="Bullet" type="RigidBody2D" groups=["bullet"]]
+z_index = -1
+collision_layer = 20
+collision_mask = 0
+physics_material_override = SubResource("PhysicsMaterial_qk871")
+max_contacts_reported = 1
+contact_monitor = true
+script = ExtResource("1_smk0g")
+
+[node name="Collision" type="CollisionShape2D" parent="."]
+z_index = -1
+shape = SubResource("CircleShape2D_5jeir")
+
+[node name="Trail" parent="." instance=ExtResource("2_n470i")]
+material = SubResource("CanvasItemMaterial_mtfes")
+width = 20.0
+lenght = 20
+
+[node name="Fly" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_b62rs")
+autoplay = true
+max_distance = 4000.0
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 5
+collision_mask = 0
+
+[node name="Collision" type="CollisionShape2D" parent="Area2D"]
+z_index = -1
+shape = SubResource("CircleShape2D_5jeir")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

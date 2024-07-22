@@ -1,0 +1,49 @@
+[gd_scene load_steps=6 format=3 uid="uid://b8d4jru1pdaa4"]
+
+[ext_resource type="Texture2D" uid="uid://3met5id3lrf3" path="res://Asset/Weapon/Shield_chip.png" id="1_01aij"]
+[ext_resource type="Script" path="res://Script/Entity/Droping/Shell.gd" id="1_nwbe0"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_5i4wp"]
+friction = 0.5
+bounce = 0.1
+
+[sub_resource type="Curve" id="Curve_pvfqh"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.24058, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="Gradient" id="Gradient_g5m52"]
+offsets = PackedFloat32Array(0, 0.213376, 1)
+colors = PackedColorArray(0.501961, 0.501961, 0.501961, 0, 0.5, 0.5, 0.5, 1, 1, 1, 1, 0)
+
+[node name="Chip" type="RigidBody2D"]
+collision_layer = 2
+collision_mask = 4
+physics_material_override = SubResource("PhysicsMaterial_5i4wp")
+script = ExtResource("1_nwbe0")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_01aij")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-7, -7, 7, -11, 7, 7, -7, 11)
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+
+[node name="Smoke" type="CPUParticles2D" parent="."]
+emitting = false
+amount = 50
+lifetime = 0.5
+one_shot = true
+speed_scale = 0.5
+randomness = 1.0
+lifetime_randomness = 1.0
+spread = 0.0
+gravity = Vector2(0, -980)
+initial_velocity_max = 10.0
+angular_velocity_min = -180.0
+angular_velocity_max = 180.0
+damping_min = 50.0
+damping_max = 100.0
+scale_amount_max = 5.0
+scale_amount_curve = SubResource("Curve_pvfqh")
+color_ramp = SubResource("Gradient_g5m52")

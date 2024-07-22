@@ -1,0 +1,40 @@
+[gd_scene load_steps=6 format=3 uid="uid://d32hdsswlsda2"]
+
+[ext_resource type="Script" path="res://Script/Entity/Droping/Shell.gd" id="1_yobd6"]
+[ext_resource type="AudioStream" uid="uid://cnhdkicl0qx1f" path="res://Asset/Weapon/Sound/Shell12_drop.mp3" id="2_pa0f6"]
+[ext_resource type="Texture2D" uid="uid://cyabcpacjc1ww" path="res://Asset/Weapon/shell.png" id="3_a0jkg"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_5hhys"]
+friction = 0.1
+bounce = 0.2
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_k8s02"]
+radius = 2.0
+height = 10.0
+
+[node name="Shell12" type="RigidBody2D"]
+collision_layer = 2
+collision_mask = 4
+physics_material_override = SubResource("PhysicsMaterial_5hhys")
+max_contacts_reported = 30
+contact_monitor = true
+script = ExtResource("1_yobd6")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.5, 0)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_k8s02")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_pa0f6")
+volume_db = -10.0
+max_distance = 1000.0
+max_polyphony = 5
+
+[node name="Shell" type="Sprite2D" parent="."]
+texture = ExtResource("3_a0jkg")
+offset = Vector2(0, 5)
+hframes = 4
+frame = 3
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

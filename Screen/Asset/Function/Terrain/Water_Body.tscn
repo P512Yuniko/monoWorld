@@ -1,0 +1,43 @@
+[gd_scene load_steps=7 format=3 uid="uid://dr35tafc17dqv"]
+
+[ext_resource type="Script" path="res://Script/Function/Terrain/Water_Body.gd" id="2"]
+[ext_resource type="Shader" path="res://Script/Function/Shader/Color.gdshader" id="2_ldhh1"]
+[ext_resource type="Script" path="res://Script/Function/Terrain/smooth_path_modified.gd" id="3"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_x3oms"]
+shader = ExtResource("2_ldhh1")
+shader_parameter/color = Color(0.2, 0.2, 0.2, 1)
+
+[sub_resource type="Curve2D" id="1"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4jpgx"]
+
+[node name="Water_Body" type="Node2D"]
+script = ExtResource("2")
+
+[node name="Water_Polygon" type="Polygon2D" parent="."]
+material = SubResource("ShaderMaterial_x3oms")
+
+[node name="Water_Border" type="Path2D" parent="."]
+curve = SubResource("1")
+script = ExtResource("3")
+color = Color(1, 1, 1, 0.396078)
+
+[node name="Water_Body_Area" type="Area2D" parent="." groups=["water"]]
+collision_layer = 16
+collision_mask = 2031
+gravity_space_override = 1
+gravity = -2940.0
+linear_damp_space_override = 1
+linear_damp = 2.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Water_Body_Area"]
+shape = SubResource("RectangleShape2D_4jpgx")
+debug_color = Color(0.701961, 0, 0.0117647, 0.419608)
+
+[node name="Marker2D" type="Marker2D" parent="."]
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

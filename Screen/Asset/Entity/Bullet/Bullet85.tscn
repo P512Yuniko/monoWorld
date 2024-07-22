@@ -1,0 +1,127 @@
+[gd_scene load_steps=10 format=3 uid="uid://dfh74in711yia"]
+
+[ext_resource type="Script" path="res://Script/Entity/Bullet/Bullet85.gd" id="1_mmpl0"]
+[ext_resource type="Texture2D" uid="uid://d1l37rkeetvfk" path="res://Asset/Weapon/Launcher.png" id="2_ve6k4"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_qk871"]
+rough = true
+absorbent = true
+
+[sub_resource type="Animation" id="Animation_od5tx"]
+resource_name = "Process"
+length = 100.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D/Sprite2D2:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, -2.25147, -2.14675]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D/Sprite2D3:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, 2.25147, 2.14675]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_xlrtn"]
+_data = {
+"Process": SubResource("Animation_od5tx")
+}
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ib0qb"]
+radius = 14.0
+height = 64.0
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_bv8m5"]
+light_mode = 1
+
+[sub_resource type="Curve" id="Curve_nh80v"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.298039, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="Gradient" id="Gradient_nsic0"]
+offsets = PackedFloat32Array(0, 0.745536, 1)
+colors = PackedColorArray(1, 1, 1, 1, 0.56, 0.56, 0.56, 0.682353, 0, 0, 0, 0)
+
+[node name="Bullet" type="RigidBody2D" groups=["bullet"]]
+collision_layer = 20
+collision_mask = 0
+mass = 25.0
+physics_material_override = SubResource("PhysicsMaterial_qk871")
+gravity_scale = 0.0
+max_contacts_reported = 1
+contact_monitor = true
+linear_damp = 5.0
+script = ExtResource("1_mmpl0")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(97, 0)
+texture = ExtResource("2_ve6k4")
+offset = Vector2(-64, 0)
+hframes = 2
+vframes = 5
+frame = 8
+
+[node name="Sprite2D2" type="Sprite2D" parent="Sprite2D"]
+z_index = -1
+position = Vector2(-115, -11)
+rotation = -2.14675
+texture = ExtResource("2_ve6k4")
+offset = Vector2(10, 0)
+hframes = 2
+vframes = 5
+frame = 9
+
+[node name="Sprite2D3" type="Sprite2D" parent="Sprite2D"]
+z_index = -1
+position = Vector2(-115, 11)
+rotation = 2.14675
+texture = ExtResource("2_ve6k4")
+offset = Vector2(10, 0)
+flip_v = true
+hframes = 2
+vframes = 5
+frame = 9
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_xlrtn")
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(64, 0)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_ib0qb")
+
+[node name="Jet" type="CPUParticles2D" parent="."]
+material = SubResource("CanvasItemMaterial_bv8m5")
+position = Vector2(-19, 0)
+amount = 500
+speed_scale = 5.0
+randomness = 0.5
+lifetime_randomness = 0.5
+direction = Vector2(-1, 0)
+spread = 2.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 200.0
+initial_velocity_max = 400.0
+angular_velocity_min = -720.0
+angular_velocity_max = 720.0
+scale_amount_min = 4.0
+scale_amount_max = 40.0
+scale_amount_curve = SubResource("Curve_nh80v")
+color_ramp = SubResource("Gradient_nsic0")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

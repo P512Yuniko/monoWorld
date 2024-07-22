@@ -1,0 +1,71 @@
+[gd_scene load_steps=8 format=3 uid="uid://bvc4d216fxljj"]
+
+[ext_resource type="Script" path="res://Script/Entity/Slash/Cblade2.gd" id="1_kf6qs"]
+[ext_resource type="Texture2D" uid="uid://4lmwtt7wod3w" path="res://Asset/Weapon/CBlade.png" id="2_pjpu2"]
+[ext_resource type="Texture2D" uid="uid://cxbnlrlruf2cc" path="res://Asset/Weapon/Slash/Xoay.png" id="3_1mhub"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_itnsy"]
+bounce = 0.1
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_uw7j6"]
+height = 135.0
+
+[sub_resource type="Animation" id="Animation_v5x85"]
+resource_name = "Process"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CBlade2:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_wyqy4"]
+_data = {
+"Process": SubResource("Animation_v5x85")
+}
+
+[node name="CBlade" type="RigidBody2D" groups=["slash"]]
+collision_layer = 4
+collision_mask = 16
+physics_material_override = SubResource("PhysicsMaterial_itnsy")
+gravity_scale = 0.0
+max_contacts_reported = 1
+contact_monitor = true
+linear_damp = 20.0
+script = ExtResource("1_kf6qs")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -56)
+shape = SubResource("CapsuleShape2D_uw7j6")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+position = Vector2(0, 56)
+shape = SubResource("CapsuleShape2D_uw7j6")
+
+[node name="CBlade" type="Sprite2D" parent="."]
+rotation = -3.14159
+scale = Vector2(-1, 1)
+texture = ExtResource("2_pjpu2")
+offset = Vector2(0, 36)
+hframes = 3
+
+[node name="CBlade2" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.8)
+position = Vector2(0, 39)
+rotation = -3.14159
+scale = Vector2(-1, 1)
+texture = ExtResource("3_1mhub")
+offset = Vector2(0, 36)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_wyqy4")
+}
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

@@ -1,0 +1,74 @@
+[gd_scene load_steps=9 format=3 uid="uid://cyslur1rgretl"]
+
+[ext_resource type="Script" path="res://Script/Entity/Bullet/Fire.gd" id="1_b3864"]
+[ext_resource type="Texture2D" uid="uid://d1bif8ysyd2yn" path="res://Asset/Texture/Effect/Thermite.png" id="3_w16xf"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_reyub"]
+rough = true
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_y47g4"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_p7few"]
+light_mode = 1
+
+[sub_resource type="Curve" id="Curve_xf11i"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.957198, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Gradient" id="Gradient_p756q"]
+offsets = PackedFloat32Array(0.412811, 1)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_5n7ed"]
+radius = 25.02
+
+[node name="Fire" type="RigidBody2D" groups=["danger", "fire"]]
+z_index = -1
+collision_layer = 0
+collision_mask = 4
+physics_material_override = SubResource("PhysicsMaterial_reyub")
+max_contacts_reported = 10
+contact_monitor = true
+script = ExtResource("1_b3864")
+
+[node name="Collision" type="CollisionShape2D" parent="."]
+rotation = 1.5708
+shape = SubResource("CircleShape2D_y47g4")
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+material = SubResource("CanvasItemMaterial_p7few")
+amount = 50
+speed_scale = 2.0
+lifetime_randomness = 0.5
+texture = ExtResource("3_w16xf")
+emission_shape = 1
+emission_sphere_radius = 10.0
+direction = Vector2(0, -1)
+spread = 180.0
+gravity = Vector2(0, 98)
+initial_velocity_min = 100.0
+initial_velocity_max = 200.0
+angular_velocity_min = -720.0
+angular_velocity_max = 720.0
+angle_min = -720.0
+angle_max = 720.0
+scale_amount_min = 2.0
+scale_amount_max = 6.0
+scale_amount_curve = SubResource("Curve_xf11i")
+color_ramp = SubResource("Gradient_p756q")
+
+[node name="Area" type="Area2D" parent="."]
+collision_layer = 5
+collision_mask = 0
+
+[node name="Collision" type="CollisionShape2D" parent="Area"]
+rotation = 1.5708
+shape = SubResource("CircleShape2D_5n7ed")
+
+[node name="BurnDelay" type="Timer" parent="."]
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="timeout" from="BurnDelay" to="." method="_on_burn_delay_timeout"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

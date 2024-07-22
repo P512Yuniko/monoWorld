@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=3 uid="uid://c727pppuqi72i"]
+
+[ext_resource type="Texture2D" uid="uid://bsci2vd8i5ehw" path="res://Asset/UI/Box/Perkslot.png" id="1_8k6to"]
+[ext_resource type="Script" path="res://Script/Function/HUD/perk.gd" id="1_veau1"]
+
+[node name="Perk" type="Button"]
+use_parent_material = true
+custom_minimum_size = Vector2(32, 64)
+offset_right = 32.0
+offset_bottom = 64.0
+focus_mode = 0
+flat = true
+script = ExtResource("1_veau1")
+cost = 2
+
+[node name="Box" type="Sprite2D" parent="."]
+z_index = 1
+use_parent_material = true
+position = Vector2(16, 32)
+texture = ExtResource("1_8k6to")
+vframes = 3
+frame = 1

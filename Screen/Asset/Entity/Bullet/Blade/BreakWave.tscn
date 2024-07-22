@@ -1,0 +1,35 @@
+[gd_scene load_steps=5 format=3 uid="uid://cj7haynd0b72a"]
+
+[ext_resource type="Script" path="res://Script/Entity/Slash/BreakWave.gd" id="1_l2ki2"]
+[ext_resource type="Texture2D" uid="uid://00ogym7jjmpl" path="res://Asset/Weapon/Slash/Sword_D.png" id="2_dxs2v"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_xfi87"]
+radius = 222.02
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_hhtp1"]
+light_mode = 1
+
+[node name="BWave" type="RigidBody2D" groups=["slash"]]
+collision_layer = 4
+collision_mask = 0
+gravity_scale = 0.0
+max_contacts_reported = 10
+contact_monitor = true
+lock_rotation = true
+script = ExtResource("1_l2ki2")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+position = Vector2(100, -20)
+shape = SubResource("CircleShape2D_xfi87")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+material = SubResource("CanvasItemMaterial_hhtp1")
+position = Vector2(20, 0)
+texture = ExtResource("2_dxs2v")
+hframes = 3
+frame = 2
+
+[node name="Timer" type="Timer" parent="."]
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

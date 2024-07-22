@@ -1,0 +1,43 @@
+[gd_scene load_steps=8 format=3 uid="uid://bkw4yfhvjq55i"]
+
+[ext_resource type="Script" path="res://Script/Equipment/Throw/Frag.gd" id="1_5ah6x"]
+[ext_resource type="Texture2D" uid="uid://btwhw20sq7ckb" path="res://Asset/Weapon/Nade.png" id="2_7lo80"]
+[ext_resource type="PackedScene" uid="uid://b62oc04ai6iwg" path="res://Screen/Asset/Function/Trail.tscn" id="2_76jo8"]
+[ext_resource type="Texture2D" uid="uid://brqdfh75m07tt" path="res://Asset/Texture/Effect/CircleBig2.png" id="4_cjeqv"]
+[ext_resource type="Texture2D" uid="uid://bgi2i2qfk283x" path="res://Asset/Weapon/Nade_Trigger.png" id="4_rsql2"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_pp3aa"]
+bounce = 0.5
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_hkm0n"]
+radius = 15.0
+
+[node name="Frag" type="RigidBody2D"]
+collision_layer = 0
+collision_mask = 4
+physics_material_override = SubResource("PhysicsMaterial_pp3aa")
+max_contacts_reported = 1
+contact_monitor = true
+script = ExtResource("1_5ah6x")
+
+[node name="Trail" parent="." instance=ExtResource("2_76jo8")]
+width = 20.0
+default_color = Color(0.7, 0.7, 0.7, 1)
+lenght = 20
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_7lo80")
+hframes = 4
+vframes = 2
+
+[node name="NadeTrigger" type="Sprite2D" parent="."]
+texture = ExtResource("4_rsql2")
+hframes = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_hkm0n")
+
+[node name="Circle2" type="Sprite2D" parent="."]
+texture = ExtResource("4_cjeqv")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

@@ -1,0 +1,25 @@
+[gd_scene load_steps=3 format=3 uid="uid://dyxal3uh1ojft"]
+
+[ext_resource type="Script" path="res://Script/Entity/Effect/Hit.gd" id="1_thjus"]
+
+[sub_resource type="Gradient" id="Gradient_50bio"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
+[node name="CPUParticles2D" type="CPUParticles2D"]
+emitting = false
+amount = 100
+lifetime = 0.3
+one_shot = true
+speed_scale = 3.0
+explosiveness = 1.0
+local_coords = true
+direction = Vector2(0, 1)
+spread = 145.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 200.0
+initial_velocity_max = 400.0
+angle_min = -90.0
+angle_max = 90.0
+scale_amount_max = 10.0
+color_ramp = SubResource("Gradient_50bio")
+script = ExtResource("1_thjus")

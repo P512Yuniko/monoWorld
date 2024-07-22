@@ -1,0 +1,94 @@
+[gd_scene load_steps=4 format=3 uid="uid://dcg886apig4oo"]
+
+[ext_resource type="Script" path="res://Script/Entity/Bullet/SentryDeployer.gd" id="1_u6qwe"]
+[ext_resource type="Texture2D" uid="uid://dik154n0yd471" path="res://Asset/Weapon/Sentry.png" id="2_dv2ug"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tynia"]
+size = Vector2(58, 151)
+
+[node name="Sentry" type="RigidBody2D"]
+collision_layer = 0
+collision_mask = 4
+max_contacts_reported = 30
+contact_monitor = true
+script = ExtResource("1_u6qwe")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -0.5)
+shape = SubResource("RectangleShape2D_tynia")
+
+[node name="Body" type="Sprite2D" parent="."]
+position = Vector2(9, 50)
+texture = ExtResource("2_dv2ug")
+offset = Vector2(-1, -22)
+hframes = 4
+vframes = 3
+frame = 2
+
+[node name="Hub" type="Sprite2D" parent="Body"]
+position = Vector2(-2, -44)
+rotation = -1.5708
+texture = ExtResource("2_dv2ug")
+hframes = 4
+vframes = 3
+frame = 3
+
+[node name="Gun" type="Sprite2D" parent="Body/Hub"]
+z_index = -2
+texture = ExtResource("2_dv2ug")
+offset = Vector2(20, -5)
+hframes = 4
+vframes = 3
+
+[node name="Pod" type="Sprite2D" parent="Body/Hub/Gun"]
+position = Vector2(-27, -25)
+rotation = 1.5708
+texture = ExtResource("2_dv2ug")
+hframes = 4
+vframes = 3
+frame = 7
+
+[node name="Mag" type="Sprite2D" parent="Body/Hub/Gun"]
+show_behind_parent = true
+position = Vector2(-22, 9)
+texture = ExtResource("2_dv2ug")
+hframes = 4
+vframes = 3
+frame = 6
+
+[node name="LegF" type="Sprite2D" parent="Body"]
+position = Vector2(7, 9)
+rotation = -2.35619
+texture = ExtResource("2_dv2ug")
+offset = Vector2(37, 3)
+hframes = 4
+vframes = 3
+frame = 5
+
+[node name="LegB" type="Sprite2D" parent="Body"]
+position = Vector2(-5, 9)
+rotation = 0.785398
+texture = ExtResource("2_dv2ug")
+offset = Vector2(-4, 3)
+hframes = 4
+vframes = 3
+frame = 4
+
+[node name="Spawn" type="Marker2D" parent="."]
+position = Vector2(9, 50)
+
+[node name="Down" type="RayCast2D" parent="."]
+position = Vector2(9, 50)
+collision_mask = 2
+
+[node name="Right" type="RayCast2D" parent="."]
+position = Vector2(9, 50)
+target_position = Vector2(50, 0)
+collision_mask = 2
+
+[node name="Left" type="RayCast2D" parent="."]
+position = Vector2(9, 50)
+target_position = Vector2(-70, 0)
+collision_mask = 2
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

@@ -1,0 +1,58 @@
+[gd_scene load_steps=6 format=3 uid="uid://b7m0ru631aobe"]
+
+[ext_resource type="Script" path="res://Script/Entity/Enemy/Bullet/BulletM1.gd" id="1_hqtr1"]
+[ext_resource type="PackedScene" uid="uid://b62oc04ai6iwg" path="res://Screen/Asset/Function/Trail.tscn" id="2_crgcm"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_qk871"]
+friction = 0.0
+rough = true
+absorbent = true
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ib0qb"]
+radius = 18.0
+height = 42.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_uvpcl"]
+radius = 29.0
+height = 58.0
+
+[node name="Bullet" type="RigidBody2D" groups=["danger"]]
+collision_layer = 2
+collision_mask = 5
+mass = 25.0
+physics_material_override = SubResource("PhysicsMaterial_qk871")
+gravity_scale = 0.2
+max_contacts_reported = 1
+contact_monitor = true
+script = ExtResource("1_hqtr1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_ib0qb")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-5, 0)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_uvpcl")
+
+[node name="Trail" parent="." instance=ExtResource("2_crgcm")]
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+amount = 100
+lifetime = 2.0
+randomness = 0.5
+lifetime_randomness = 0.5
+direction = Vector2(-1, 0)
+spread = 2.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 100.0
+initial_velocity_max = 200.0
+angle_min = -720.0
+angle_max = 720.0
+scale_amount_min = 5.0
+scale_amount_max = 10.0
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

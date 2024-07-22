@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://dcalf80of8wg7"]
+
+[ext_resource type="Texture2D" uid="uid://c447l2oilc36s" path="res://Asset/UI/HUD_Icon/hurt.png" id="1_ui8xd"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_sj8l3"]
+light_mode = 1
+
+[node name="HitMarker" type="Sprite2D"]
+z_index = 5
+material = SubResource("CanvasItemMaterial_sj8l3")
+texture = ExtResource("1_ui8xd")

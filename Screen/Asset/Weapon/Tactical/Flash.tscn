@@ -1,0 +1,89 @@
+[gd_scene load_steps=10 format=3 uid="uid://csu05h6bfixmq"]
+
+[ext_resource type="Script" path="res://Script/Equipment/Throw/Flash.gd" id="1_pe88w"]
+[ext_resource type="AudioStream" uid="uid://spbl0ft88mt4" path="res://Asset/Weapon/Sound/Flash.mp3" id="2_cfg07"]
+[ext_resource type="Texture2D" uid="uid://btwhw20sq7ckb" path="res://Asset/Weapon/Nade.png" id="2_gvrkc"]
+[ext_resource type="PackedScene" uid="uid://b62oc04ai6iwg" path="res://Screen/Asset/Function/Trail.tscn" id="4_f11oy"]
+[ext_resource type="Texture2D" uid="uid://bgi2i2qfk283x" path="res://Asset/Weapon/Nade_Trigger.png" id="4_fgp0a"]
+[ext_resource type="Texture2D" uid="uid://0ec7pv1cihxj" path="res://Asset/Weapon/Light.png" id="6_hwodq"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_pp3aa"]
+bounce = 0.5
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_r3gsa"]
+size = Vector2(17.5, 47.5)
+
+[sub_resource type="Curve" id="Curve_exa18"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[node name="Flash" type="RigidBody2D"]
+collision_layer = 0
+collision_mask = 4
+physics_material_override = SubResource("PhysicsMaterial_pp3aa")
+max_contacts_reported = 2
+contact_monitor = true
+script = ExtResource("1_pe88w")
+
+[node name="Audio" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_cfg07")
+volume_db = -10.0
+max_distance = 10000.0
+bus = &"Sound"
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-0.35, -1)
+texture = ExtResource("2_gvrkc")
+hframes = 4
+vframes = 2
+frame = 5
+
+[node name="NadeTrigger" type="Sprite2D" parent="."]
+texture = ExtResource("4_fgp0a")
+hframes = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_r3gsa")
+
+[node name="Particles" type="CPUParticles2D" parent="."]
+emitting = false
+amount = 50
+lifetime = 0.5
+one_shot = true
+speed_scale = 4.0
+explosiveness = 1.0
+randomness = 0.5
+lifetime_randomness = 0.5
+direction = Vector2(-1, 0)
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 100.0
+initial_velocity_max = 1000.0
+angular_velocity_min = -720.0
+angular_velocity_max = 720.0
+angle_min = -720.0
+angle_max = 720.0
+scale_amount_min = 10.0
+scale_amount_max = 20.0
+scale_amount_curve = SubResource("Curve_exa18")
+
+[node name="Trail" parent="." instance=ExtResource("4_f11oy")]
+width = 20.0
+default_color = Color(0.7, 0.7, 0.7, 1)
+lenght = 20
+
+[node name="Light" type="PointLight2D" parent="."]
+scale = Vector2(1e-05, 1e-05)
+energy = 3.0
+shadow_enabled = true
+texture = ExtResource("6_hwodq")
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+
+[node name="Delay" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="Delay" to="." method="_on_delay_timeout"]

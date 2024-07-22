@@ -1,0 +1,37 @@
+[gd_scene load_steps=7 format=3 uid="uid://bntsmeq8k2qk"]
+
+[ext_resource type="Script" path="res://Script/Function/HUD/Sound.gd" id="1_mmgv2"]
+[ext_resource type="AudioStream" uid="uid://dmbjmnljj5fnp" path="res://Asset/Sound/UI/Select.mp3" id="2_5qgu2"]
+[ext_resource type="AudioStream" uid="uid://cku73iv73mi7h" path="res://Asset/Sound/UI/Press.mp3" id="3_nqk27"]
+[ext_resource type="AudioStream" uid="uid://71oghoocuii6" path="res://Asset/Sound/UI/Press2.mp3" id="4_4a5qh"]
+[ext_resource type="AudioStream" uid="uid://c23nu1nr0cvxy" path="res://Asset/Sound/UI/Out.mp3" id="4_s4py0"]
+[ext_resource type="AudioStream" uid="uid://ch6g721yk7bti" path="res://Asset/Sound/UI/Pick.mp3" id="5_bx85q"]
+
+[node name="Sound" type="Node2D"]
+process_mode = 3
+script = ExtResource("1_mmgv2")
+
+[node name="Select" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_5qgu2")
+volume_db = -10.0
+max_polyphony = 2
+
+[node name="Press" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_nqk27")
+volume_db = -10.0
+max_polyphony = 5
+
+[node name="Press2" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_4a5qh")
+volume_db = -10.0
+max_polyphony = 5
+
+[node name="Cancel" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_s4py0")
+volume_db = -10.0
+max_polyphony = 5
+
+[node name="Pick" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_bx85q")
+volume_db = -10.0
+max_polyphony = 2

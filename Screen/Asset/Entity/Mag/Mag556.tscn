@@ -1,0 +1,37 @@
+[gd_scene load_steps=5 format=3 uid="uid://83ps7ugt08sy"]
+
+[ext_resource type="Script" path="res://Script/Entity/Droping/Mag.gd" id="1_3isxs"]
+[ext_resource type="Texture2D" uid="uid://sqlnqk8w4snp" path="res://Asset/Weapon/Specna9.png" id="1_af4hh"]
+[ext_resource type="AudioStream" uid="uid://hrwmyykk5te0" path="res://Asset/Weapon/Sound/Mag556.mp3" id="3_eojyw"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_ij2wh"]
+bounce = 0.2
+
+[node name="Mag556" type="RigidBody2D"]
+z_index = -3
+collision_layer = 2
+collision_mask = 4
+physics_material_override = SubResource("PhysicsMaterial_ij2wh")
+max_contacts_reported = 30
+contact_monitor = true
+script = ExtResource("1_3isxs")
+
+[node name="CollisionShape2D" type="CollisionPolygon2D" parent="."]
+position = Vector2(-3.55271e-15, 0)
+rotation = 1.5708
+polygon = PackedVector2Array(-15, 9.00005, -2.99997, 8.00001, 9.00002, 5.99997, 17, 2.99994, 11, -12, 3.99996, -10, -6.00003, -7.99998, -15, -6.99995)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -22)
+texture = ExtResource("1_af4hh")
+hframes = 2
+vframes = 5
+frame = 6
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_eojyw")
+volume_db = -20.0
+max_distance = 1000.0
+max_polyphony = 5
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

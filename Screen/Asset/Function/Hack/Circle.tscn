@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://cx2ojdj05cgb6"]
+
+[ext_resource type="Script" path="res://Script/Function/HUD/Hack.gd" id="1_gily3"]
+[ext_resource type="Texture2D" uid="uid://72fo6xnq7f4" path="res://Asset/UI/Hacking/Circle.png" id="2_roi6a"]
+
+[node name="1" type="Node2D"]
+script = ExtResource("1_gily3")
+
+[node name="Circle" type="Sprite2D" parent="."]
+texture = ExtResource("2_roi6a")
+hframes = 5
+
+[node name="Camera2D" type="Camera2D" parent="."]

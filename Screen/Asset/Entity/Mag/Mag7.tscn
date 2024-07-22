@@ -1,0 +1,35 @@
+[gd_scene load_steps=5 format=3 uid="uid://beese8s1vb6c7"]
+
+[ext_resource type="Script" path="res://Script/Entity/Droping/Mag.gd" id="1_p3b07"]
+[ext_resource type="Texture2D" uid="uid://bss3fndqb2clv" path="res://Asset/Weapon/SMG_3.png" id="2_62ra3"]
+[ext_resource type="AudioStream" uid="uid://c04hw52vdf8a3" path="res://Asset/Weapon/Sound/Mag9.mp3" id="3_1xb3a"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_ij2wh"]
+bounce = 0.2
+
+[node name="Mag9" type="RigidBody2D"]
+z_index = -3
+collision_layer = 2
+collision_mask = 4
+physics_material_override = SubResource("PhysicsMaterial_ij2wh")
+max_contacts_reported = 30
+contact_monitor = true
+script = ExtResource("1_p3b07")
+
+[node name="CollisionShape2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-6, -16, 5, -16, 5, 9, 10, 27, -1, 30, -6, 10)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_62ra3")
+offset = Vector2(-6, 6)
+hframes = 2
+vframes = 3
+frame = 5
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_1xb3a")
+volume_db = -20.0
+max_distance = 1000.0
+max_polyphony = 5
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

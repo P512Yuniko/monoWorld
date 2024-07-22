@@ -1,0 +1,48 @@
+[gd_scene load_steps=7 format=3 uid="uid://jkuf7i8p4fc"]
+
+[ext_resource type="Script" path="res://Script/Equipment/Throw/Smoke.gd" id="1_hckkl"]
+[ext_resource type="Texture2D" uid="uid://bgi2i2qfk283x" path="res://Asset/Weapon/Nade_Trigger.png" id="2_1y4ue"]
+[ext_resource type="Texture2D" uid="uid://btwhw20sq7ckb" path="res://Asset/Weapon/Nade.png" id="2_lpani"]
+[ext_resource type="PackedScene" uid="uid://b62oc04ai6iwg" path="res://Screen/Asset/Function/Trail.tscn" id="3_5ughu"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_pp3aa"]
+bounce = 0.5
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_r3gsa"]
+size = Vector2(27, 42)
+
+[node name="Smoke" type="RigidBody2D"]
+collision_layer = 0
+collision_mask = 4
+physics_material_override = SubResource("PhysicsMaterial_pp3aa")
+max_contacts_reported = 2
+contact_monitor = true
+script = ExtResource("1_hckkl")
+
+[node name="NadeTrigger" type="Sprite2D" parent="."]
+texture = ExtResource("2_1y4ue")
+hframes = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-0.35, -1)
+texture = ExtResource("2_lpani")
+hframes = 4
+vframes = 2
+frame = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_r3gsa")
+
+[node name="Trail" parent="." instance=ExtResource("3_5ughu")]
+width = 20.0
+default_color = Color(0.7, 0.7, 0.7, 1)
+lenght = 20
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+
+[node name="Smoke" type="Timer" parent="."]
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="Smoke" to="." method="_on_smoke_timeout"]

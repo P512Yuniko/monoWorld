@@ -1,0 +1,48 @@
+[gd_scene load_steps=6 format=3 uid="uid://clw30jp6fewnv"]
+
+[ext_resource type="Script" path="res://Script/Entity/Enemy/Bullet/BulletM1.gd" id="1_bf2ut"]
+[ext_resource type="Texture2D" uid="uid://tt461of7ld8k" path="res://Asset/Monster/Small/ngu3.png" id="2_r8ssj"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_qk871"]
+friction = 0.0
+rough = true
+absorbent = true
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_txhdg"]
+radius = 24.0208
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_uvpcl"]
+radius = 29.0
+height = 58.0
+
+[node name="Bullet" type="RigidBody2D" groups=["danger"]]
+z_index = -1
+collision_layer = 2
+collision_mask = 5
+mass = 25.0
+physics_material_override = SubResource("PhysicsMaterial_qk871")
+max_contacts_reported = 1
+contact_monitor = true
+script = ExtResource("1_bf2ut")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(27, 4)
+texture = ExtResource("2_r8ssj")
+offset = Vector2(-31, -6)
+hframes = 2
+vframes = 2
+frame = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+rotation = 1.5708
+shape = SubResource("CircleShape2D_txhdg")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_mask = 0
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Area2D"]
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_uvpcl")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

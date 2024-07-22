@@ -1,0 +1,340 @@
+[gd_scene load_steps=21 format=3 uid="uid://vg4l7w86xtp3"]
+
+[ext_resource type="Script" path="res://Script/Entity/Enemy/Monster/Ngu/Ngu_3.gd" id="1_etmll"]
+[ext_resource type="Texture2D" uid="uid://tt461of7ld8k" path="res://Asset/Monster/Small/ngu3.png" id="2_850qu"]
+[ext_resource type="Shader" path="res://Script/Function/Shader/flash.gdshader" id="2_f0vqj"]
+[ext_resource type="Texture2D" uid="uid://my2aiu3aarmj" path="res://Asset/Monster/Small/ngu1.png" id="3_ebs3t"]
+[ext_resource type="Texture2D" uid="uid://hp4y52i3sucv" path="res://Asset/Monster/UI/Life_bar_3.png" id="4_x1hh4"]
+[ext_resource type="Texture2D" uid="uid://cwbi38uva8f4c" path="res://Asset/Monster/UI/Life_bar_1.png" id="5_44k71"]
+[ext_resource type="Texture2D" uid="uid://d30fgvujtvxui" path="res://Asset/Monster/UI/Detect3.png" id="5_p7rye"]
+[ext_resource type="Texture2D" uid="uid://fdgwgj0mjjg7" path="res://Asset/Monster/UI/Life_bar_2.png" id="6_hlytd"]
+[ext_resource type="Texture2D" uid="uid://b4eggqyji3qdx" path="res://Asset/Monster/UI/Detect2.png" id="6_xgytu"]
+[ext_resource type="Texture2D" uid="uid://b7tbn42od41ok" path="res://Asset/Monster/UI/Detect.png" id="7_5y2db"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_g7bkv"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_crosx"]
+shader = ExtResource("2_f0vqj")
+shader_parameter/color = Color(0, 0, 0, 1)
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_f4hgd"]
+light_mode = 1
+
+[sub_resource type="Animation" id="Animation_4xccg"]
+resource_name = "Idle"
+length = 0.40001
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("LegColiision:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 0.5),
+"update": 0,
+"values": [Vector2(0, 41), Vector2(0, 48)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Body/Leg1:position")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 0.5),
+"update": 0,
+"values": [Vector2(-41.0001, 33), Vector2(-41.0001, 39)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Body/Leg2:position")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 0.5),
+"update": 0,
+"values": [Vector2(46.9999, 33), Vector2(46.9999, 39)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Body:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_6qoea"]
+resource_name = "Move"
+length = 0.400005
+loop_mode = 1
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("LegColiision:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(-1, 57), Vector2(0, 60), Vector2(0, 57), Vector2(0, 61)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Body/Leg1:position")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(-44.0001, 48.9999), Vector2(-35.0001, 40.9999), Vector2(-26.0001, 48.9999)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Body/Leg2:position")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(49.9999, 49.0001), Vector2(26.9999, 49.0001), Vector2(37.9999, 41.0001)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Body:rotation")
+tracks/3/interp = 2
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [-0.0349066, 0.0349066]
+}
+
+[sub_resource type="Animation" id="Animation_qfg47"]
+resource_name = "Shoot"
+length = 0.40001
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("LegColiision:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.3, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 41), Vector2(0, 48), Vector2(0, 48), Vector2(0, 41)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Body/Leg1:position")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.3, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(-41.0001, 33), Vector2(-41.0001, 39), Vector2(-41.0001, 39), Vector2(-41.0001, 33)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Body/Leg2:position")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.3, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(46.9999, 33), Vector2(46.9999, 39), Vector2(46.9999, 39), Vector2(46.9999, 33)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Body:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Body/Up:position")
+tracks/4/interp = 2
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.3, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(32, -11), Vector2(32, 20), Vector2(32, 20), Vector2(32, -11)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_qmlou"]
+_data = {
+"Idle": SubResource("Animation_4xccg"),
+"Move": SubResource("Animation_6qoea"),
+"Shoot": SubResource("Animation_qfg47")
+}
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_s7e8j"]
+radius = 47.0
+height = 142.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_gfsok"]
+radius = 22.0
+height = 142.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_1slba"]
+radius = 60.0
+height = 160.0
+
+[node name="BanhMi" type="RigidBody2D" groups=["target"]]
+collision_layer = 2
+collision_mask = 16
+collision_priority = 5.0
+physics_material_override = SubResource("PhysicsMaterial_g7bkv")
+lock_rotation = true
+angular_damp = 10.0
+script = ExtResource("1_etmll")
+
+[node name="Body" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_crosx")
+position = Vector2(0, 18)
+texture = ExtResource("2_850qu")
+offset = Vector2(5, 0)
+hframes = 2
+vframes = 2
+
+[node name="Leg1" type="Sprite2D" parent="Body"]
+show_behind_parent = true
+use_parent_material = true
+position = Vector2(-41.0001, 38.8401)
+texture = ExtResource("3_ebs3t")
+offset = Vector2(10, 0)
+hframes = 2
+vframes = 2
+frame = 2
+
+[node name="Leg2" type="Sprite2D" parent="Body"]
+show_behind_parent = true
+use_parent_material = true
+position = Vector2(46.9999, 38.8401)
+texture = ExtResource("3_ebs3t")
+offset = Vector2(-12, 0)
+hframes = 2
+vframes = 2
+frame = 2
+
+[node name="Up" type="Sprite2D" parent="Body"]
+use_parent_material = true
+position = Vector2(32, 19.1739)
+texture = ExtResource("2_850qu")
+hframes = 2
+vframes = 2
+frame = 2
+
+[node name="Fire" type="Marker2D" parent="Body"]
+position = Vector2(0, -74)
+
+[node name="Ohno" type="TextureProgressBar" parent="Body"]
+material = SubResource("CanvasItemMaterial_f4hgd")
+offset_left = -32.0
+offset_top = -135.0
+offset_right = 32.0
+offset_bottom = -71.0
+max_value = 30.0
+fill_mode = 3
+texture_under = ExtResource("5_p7rye")
+texture_over = ExtResource("6_xgytu")
+texture_progress = ExtResource("7_5y2db")
+
+[node name="Anim" type="AnimationPlayer" parent="."]
+playback_default_blend_time = 0.25
+libraries = {
+"": SubResource("AnimationLibrary_qmlou")
+}
+
+[node name="BodyCollision" type="CollisionShape2D" parent="."]
+position = Vector2(0, 13)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_s7e8j")
+
+[node name="LegColiision" type="CollisionShape2D" parent="."]
+position = Vector2(0, 47.8135)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_gfsok")
+
+[node name="RightWall" type="RayCast2D" parent="."]
+position = Vector2(70, 10)
+target_position = Vector2(20, 0)
+
+[node name="RightEdge" type="RayCast2D" parent="."]
+position = Vector2(80, 30)
+target_position = Vector2(0, 68)
+
+[node name="LeftWall" type="RayCast2D" parent="."]
+position = Vector2(-70, 10)
+target_position = Vector2(-20, 0)
+
+[node name="LeftEdge" type="RayCast2D" parent="."]
+position = Vector2(-80, 30)
+target_position = Vector2(0, 68)
+
+[node name="Fire" type="Timer" parent="."]
+one_shot = true
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+autostart = true
+
+[node name="Detect" type="RayCast2D" parent="."]
+scale = Vector2(1, 50)
+target_position = Vector2(960, 0)
+hit_from_inside = true
+collide_with_areas = true
+
+[node name="Area" type="Area2D" parent="."]
+collision_layer = 12
+collision_mask = 4
+
+[node name="BodyCollision" type="CollisionShape2D" parent="Area"]
+position = Vector2(0, 12)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_1slba")
+
+[node name="HP" type="TextureProgressBar" parent="."]
+offset_left = -52.0
+offset_top = -42.0
+offset_right = 52.0
+offset_bottom = -2.0
+value = 100.0
+texture_under = ExtResource("4_x1hh4")
+texture_over = ExtResource("5_44k71")
+texture_progress = ExtResource("6_hlytd")
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="area_entered" from="Area" to="." method="_on_area_area_entered"]
+[connection signal="body_entered" from="Area" to="." method="_on_area_body_entered"]

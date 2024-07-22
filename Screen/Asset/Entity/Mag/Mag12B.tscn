@@ -1,0 +1,39 @@
+[gd_scene load_steps=6 format=3 uid="uid://8lgy161sm167"]
+
+[ext_resource type="Script" path="res://Script/Entity/Droping/Mag.gd" id="1_i34g4"]
+[ext_resource type="Texture2D" uid="uid://dhgcqiew0pu2b" path="res://Asset/Weapon/FO12.png" id="2_0gyvw"]
+[ext_resource type="AudioStream" uid="uid://b7132a5p1rbjr" path="res://Asset/Weapon/Sound/Mag12.mp3" id="3_datgh"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_ij2wh"]
+bounce = 0.2
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tc2u6"]
+size = Vector2(23, 47)
+
+[node name="Mag" type="RigidBody2D"]
+z_index = -2
+collision_layer = 2
+collision_mask = 4
+physics_material_override = SubResource("PhysicsMaterial_ij2wh")
+max_contacts_reported = 30
+contact_monitor = true
+script = ExtResource("1_i34g4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.5, 0.5)
+shape = SubResource("RectangleShape2D_tc2u6")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_0gyvw")
+offset = Vector2(15, -8)
+hframes = 2
+vframes = 4
+frame = 4
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_datgh")
+volume_db = -20.0
+max_distance = 1000.0
+max_polyphony = 5
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

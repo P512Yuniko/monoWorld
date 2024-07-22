@@ -1,0 +1,67 @@
+[gd_scene load_steps=8 format=3 uid="uid://bqrtgnsnncfvi"]
+
+[ext_resource type="Script" path="res://Script/Entity/Droping/Shell.gd" id="1_cjcvx"]
+[ext_resource type="Texture2D" uid="uid://hminen8fvm5b" path="res://Asset/Weapon/40mm.png" id="2_6sf6t"]
+[ext_resource type="AudioStream" uid="uid://b6h4y3tl3hb60" path="res://Asset/Weapon/Sound/Shell_drop.mp3" id="3_ptde5"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_qk871"]
+friction = 0.1
+bounce = 0.2
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_f7k40"]
+size = Vector2(12.0001, 14)
+
+[sub_resource type="Curve" id="Curve_qqrlb"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.24058, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="Gradient" id="Gradient_3bum7"]
+offsets = PackedFloat32Array(0, 0.213376, 1)
+colors = PackedColorArray(0.501961, 0.501961, 0.501961, 0, 0.5, 0.5, 0.5, 1, 1, 1, 1, 0)
+
+[node name="Shell9" type="RigidBody2D"]
+collision_layer = 2
+collision_mask = 4
+physics_material_override = SubResource("PhysicsMaterial_qk871")
+max_contacts_reported = 30
+contact_monitor = true
+script = ExtResource("1_cjcvx")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-2.38419e-07, 2.38419e-07)
+rotation = 1.5708
+shape = SubResource("RectangleShape2D_f7k40")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(9, 0)
+texture = ExtResource("2_6sf6t")
+hframes = 2
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_ptde5")
+volume_db = -20.0
+max_distance = 1000.0
+max_polyphony = 5
+
+[node name="Smoke" type="CPUParticles2D" parent="."]
+show_behind_parent = true
+position = Vector2(7, 0)
+emitting = false
+amount = 50
+lifetime = 0.5
+one_shot = true
+speed_scale = 0.5
+randomness = 1.0
+lifetime_randomness = 1.0
+spread = 0.0
+gravity = Vector2(0, -980)
+initial_velocity_max = 10.0
+angular_velocity_min = -180.0
+angular_velocity_max = 180.0
+damping_min = 50.0
+damping_max = 100.0
+scale_amount_max = 5.0
+scale_amount_curve = SubResource("Curve_qqrlb")
+color_ramp = SubResource("Gradient_3bum7")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

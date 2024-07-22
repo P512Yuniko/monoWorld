@@ -1,0 +1,30 @@
+[gd_scene load_steps=5 format=3 uid="uid://d4nvaxcax6xs1"]
+
+[ext_resource type="Texture2D" uid="uid://cnyen3bn1j7gg" path="res://Asset/Texture/Effect/rectangular.png" id="1_3e60o"]
+[ext_resource type="Script" path="res://Script/Entity/Effect/Prism2.gd" id="2_clmca"]
+[ext_resource type="PackedScene" uid="uid://b62oc04ai6iwg" path="res://Screen/Asset/Function/Trail.tscn" id="3_dluu4"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_m21a5"]
+
+[node name="Sprite2D" type="RigidBody2D"]
+z_index = 5
+collision_layer = 0
+collision_mask = 0
+gravity_scale = 0.0
+linear_damp = 5.0
+script = ExtResource("2_clmca")
+
+[node name="Timer" type="Timer" parent="."]
+
+[node name="Trail" parent="." instance=ExtResource("3_dluu4")]
+width = 20.0
+lenght = 100
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_3e60o")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_m21a5")
+disabled = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

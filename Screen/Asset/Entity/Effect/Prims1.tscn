@@ -1,0 +1,18 @@
+[gd_scene load_steps=5 format=3 uid="uid://b6p6o82hmrccm"]
+
+[ext_resource type="Shader" path="res://Script/Function/Shader/Distort.gdshader" id="1_f52j3"]
+[ext_resource type="Texture2D" uid="uid://dsiplb7q7aig6" path="res://Asset/Texture/Effect/blur_t.png" id="2_n5wij"]
+[ext_resource type="Script" path="res://Script/Entity/Effect/Prism.gd" id="3_jdktc"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_0vw8e"]
+shader = ExtResource("1_f52j3")
+
+[node name="Sprite2D" type="Sprite2D"]
+z_index = 5
+material = SubResource("ShaderMaterial_0vw8e")
+texture = ExtResource("2_n5wij")
+script = ExtResource("3_jdktc")
+
+[node name="Timer" type="Timer" parent="."]
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

@@ -1,0 +1,59 @@
+[gd_scene load_steps=6 format=3 uid="uid://q26amjk64gs7"]
+
+[ext_resource type="Script" path="res://Script/Entity/Slash/CbladeR.gd" id="1_uq56g"]
+[ext_resource type="Texture2D" uid="uid://4lmwtt7wod3w" path="res://Asset/Weapon/CBlade.png" id="2_v8151"]
+[ext_resource type="Texture2D" uid="uid://cxbnlrlruf2cc" path="res://Asset/Weapon/Slash/Xoay.png" id="3_mxkx8"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_uw7j6"]
+height = 140.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_d7ntb"]
+radius = 50.0
+height = 256.0
+
+[node name="CBlade" type="RigidBody2D" groups=["slash"]]
+collision_layer = 4
+collision_mask = 16
+max_contacts_reported = 1
+contact_monitor = true
+script = ExtResource("1_uq56g")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -50)
+shape = SubResource("CapsuleShape2D_uw7j6")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+position = Vector2(0, 50)
+shape = SubResource("CapsuleShape2D_uw7j6")
+
+[node name="CBlade" type="Sprite2D" parent="."]
+rotation = -28.2744
+scale = Vector2(-1, 1)
+texture = ExtResource("2_v8151")
+offset = Vector2(0, 36)
+hframes = 3
+
+[node name="CBlade2" type="Sprite2D" parent="CBlade"]
+position = Vector2(9.15527e-05, -0.999995)
+texture = ExtResource("3_mxkx8")
+
+[node name="CBlade2" type="Sprite2D" parent="."]
+rotation = -25.1328
+scale = Vector2(-1, 1)
+texture = ExtResource("2_v8151")
+offset = Vector2(0, 36)
+hframes = 3
+
+[node name="CBlade2" type="Sprite2D" parent="CBlade2"]
+position = Vector2(0.999969, 1.00001)
+texture = ExtResource("3_mxkx8")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 17
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CapsuleShape2D_d7ntb")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

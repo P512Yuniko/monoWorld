@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://dq2obay3sdow3"]
+
+[ext_resource type="Texture2D" uid="uid://bvnaj6s0spulj" path="res://Asset/Texture/Effect/Circle2.png" id="1_34aws"]
+[ext_resource type="Script" path="res://Script/Entity/Effect/Hit.gd" id="2_uljd1"]
+
+[sub_resource type="Gradient" id="Gradient_0di0h"]
+offsets = PackedFloat32Array(0.805243, 1)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
+[node name="Splash" type="CPUParticles2D"]
+emitting = false
+one_shot = true
+speed_scale = 1.5
+explosiveness = 1.0
+texture = ExtResource("1_34aws")
+direction = Vector2(0, -1)
+gravity = Vector2(0, 490)
+initial_velocity_max = 600.0
+scale_amount_min = 0.1
+scale_amount_max = 0.5
+color_ramp = SubResource("Gradient_0di0h")
+script = ExtResource("2_uljd1")

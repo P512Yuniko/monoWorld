@@ -1,0 +1,96 @@
+[gd_scene load_steps=12 format=3 uid="uid://da66ciyqyr3ua"]
+
+[ext_resource type="Texture2D" uid="uid://qu446vsug7jl" path="res://Asset/Weapon/Itempad.png" id="1_bo0ok"]
+[ext_resource type="Script" path="res://Script/Equipment/Loot/Drop.gd" id="1_f28cc"]
+[ext_resource type="Texture2D" uid="uid://cmom5hhlvwjre" path="res://Asset/UI/Weapon/ammo.png" id="2_vpxju"]
+[ext_resource type="Texture2D" uid="uid://dvjjqx2hcggqr" path="res://Asset/UI/Weapon/Gun.png" id="4_dgpuk"]
+[ext_resource type="Texture2D" uid="uid://bc1p3l5vnxgog" path="res://Asset/UI/Weapon/Nade.png" id="5_jqy43"]
+[ext_resource type="FontFile" uid="uid://x8ow84y6jjgc" path="res://Asset/UI/Font/Tourney-Black.ttf" id="6_iga3m"]
+[ext_resource type="Texture2D" uid="uid://xserget1yk1t" path="res://Asset/UI/HUD_Icon/Item.png" id="6_pjl3k"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_61dsb"]
+bounce = 0.1
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_t0kcf"]
+light_mode = 1
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_yby5k"]
+radius = 100.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5l3ib"]
+resource_local_to_scene = true
+size = Vector2(64, 64)
+
+[node name="Drop" type="RigidBody2D" groups=["stuff"]]
+collision_layer = 2048
+collision_mask = 2056
+physics_material_override = SubResource("PhysicsMaterial_61dsb")
+can_sleep = false
+script = ExtResource("1_f28cc")
+metadata/Ammo = 30
+
+[node name="Key" type="Area2D" parent="."]
+material = SubResource("CanvasItemMaterial_t0kcf")
+collision_layer = 8
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Key"]
+visible = false
+rotation = 1.5708
+shape = SubResource("CircleShape2D_yby5k")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_5l3ib")
+
+[node name="Pad" type="Sprite2D" parent="."]
+texture = ExtResource("1_bo0ok")
+vframes = 2
+frame = 1
+
+[node name="Ammo" type="Sprite2D" parent="."]
+use_parent_material = true
+position = Vector2(-40, 8)
+texture = ExtResource("2_vpxju")
+vframes = 5
+frame = 3
+
+[node name="Item" type="Sprite2D" parent="."]
+visible = false
+use_parent_material = true
+texture = ExtResource("6_pjl3k")
+hframes = 5
+frame = 3
+
+[node name="Nade" type="Sprite2D" parent="."]
+visible = false
+use_parent_material = true
+texture = ExtResource("5_jqy43")
+hframes = 4
+vframes = 2
+
+[node name="Gun" type="Sprite2D" parent="."]
+use_parent_material = true
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("4_dgpuk")
+hframes = 10
+vframes = 5
+
+[node name="Label" type="Label" parent="."]
+use_parent_material = true
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -28.0
+offset_top = -6.0
+offset_right = 28.0
+offset_bottom = 32.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("6_iga3m")
+theme_override_font_sizes/font_size = 31
+text = "18"
+horizontal_alignment = 1
+vertical_alignment = 1

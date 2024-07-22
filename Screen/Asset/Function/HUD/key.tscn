@@ -1,0 +1,45 @@
+[gd_scene load_steps=5 format=3 uid="uid://dqhex5yqtfor"]
+
+[ext_resource type="Texture2D" uid="uid://cmx0cr8xytimp" path="res://Asset/UI/Box/1x8/normal.png" id="1_wxbp3"]
+[ext_resource type="Texture2D" uid="uid://m1pwtp57ef5k" path="res://Asset/UI/Box/1x8/hovered.png" id="2_ccudc"]
+[ext_resource type="Texture2D" uid="uid://bprgcjfv8duw4" path="res://Asset/UI/Box/1x8/disable.png" id="3_v0d1d"]
+[ext_resource type="FontFile" uid="uid://ckkg14tkp6d06" path="res://Asset/UI/Font/Jura-Bold.ttf" id="4_r6xc7"]
+
+[node name="Key" type="TextureButton"]
+process_mode = 3
+action_mode = 0
+texture_normal = ExtResource("1_wxbp3")
+texture_hover = ExtResource("2_ccudc")
+texture_disabled = ExtResource("3_v0d1d")
+texture_focused = ExtResource("2_ccudc")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.583
+anchor_bottom = 1.0
+offset_left = 32.0
+offset_right = 0.255981
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("4_r6xc7")
+theme_override_font_sizes/font_size = 20
+text = "KEY"
+vertical_alignment = 1
+text_overrun_behavior = 4
+uppercase = true
+
+[node name="Input" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.583
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 0.255981
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("4_r6xc7")
+theme_override_font_sizes/font_size = 20
+text = "KEY"
+horizontal_alignment = 1
+vertical_alignment = 1
+text_overrun_behavior = 4

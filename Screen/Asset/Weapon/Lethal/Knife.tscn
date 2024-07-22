@@ -1,0 +1,46 @@
+[gd_scene load_steps=7 format=3 uid="uid://b8j6f8ib6ru23"]
+
+[ext_resource type="Script" path="res://Script/Equipment/Throw/Knife.gd" id="1_6vayg"]
+[ext_resource type="Texture2D" uid="uid://btwhw20sq7ckb" path="res://Asset/Weapon/Nade.png" id="2_j2epc"]
+[ext_resource type="Texture2D" uid="uid://brqdfh75m07tt" path="res://Asset/Texture/Effect/CircleBig2.png" id="3_vwncg"]
+[ext_resource type="PackedScene" uid="uid://b62oc04ai6iwg" path="res://Screen/Asset/Function/Trail.tscn" id="4_kif1k"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1s7kf"]
+size = Vector2(11, 49)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_pmrgb"]
+radius = 40.0
+
+[node name="Knife" type="RigidBody2D" groups=["bullet"]]
+collision_layer = 0
+collision_mask = 4
+max_contacts_reported = 1
+contact_monitor = true
+freeze_mode = 1
+script = ExtResource("1_6vayg")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+rotation = 0.785398
+texture = ExtResource("2_j2epc")
+hframes = 4
+vframes = 2
+frame = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 9.66338e-13)
+rotation = -1.5708
+shape = SubResource("RectangleShape2D_1s7kf")
+
+[node name="Circle2" type="Sprite2D" parent="."]
+texture = ExtResource("3_vwncg")
+
+[node name="Trail" parent="." instance=ExtResource("4_kif1k")]
+default_color = Color(0.7, 0.7, 0.7, 1)
+lenght = 20
+
+[node name="ShapeCast2D" type="ShapeCast2D" parent="."]
+shape = SubResource("CircleShape2D_pmrgb")
+target_position = Vector2(0, 0)
+collision_mask = 4
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

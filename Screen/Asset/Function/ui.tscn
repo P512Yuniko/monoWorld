@@ -1,0 +1,2866 @@
+[gd_scene load_steps=112 format=3 uid="uid://derci3skw46ql"]
+
+[ext_resource type="Script" path="res://Script/Function/HUD/UI.gd" id="1_o75vx"]
+[ext_resource type="Texture2D" uid="uid://c3twv8ncpdvo0" path="res://Asset/UI/Bar/HP_1.png" id="2_3ggvv"]
+[ext_resource type="Shader" path="res://Script/Function/Shader/Color.gdshader" id="2_bqoxi"]
+[ext_resource type="Texture2D" uid="uid://b6b5vf5uuj1x" path="res://Screen/Debugging/hud1.png" id="2_gtk0e"]
+[ext_resource type="Texture2D" uid="uid://c88jho7v73880" path="res://Asset/UI/Box/1x1mesh.png" id="2_gtolj"]
+[ext_resource type="Texture2D" uid="uid://q2hb360j8hal" path="res://Asset/UI/Bar/HP_2.png" id="3_5pc8r"]
+[ext_resource type="Texture2D" uid="uid://cspiq5mv3hixp" path="res://Asset/UI/Weapon/Line_2.png" id="4_n84fe"]
+[ext_resource type="Texture2D" uid="uid://de26w2iac34d5" path="res://Asset/UI/Bar/armor_bar_1.png" id="5_313v1"]
+[ext_resource type="Texture2D" uid="uid://dkoengfw50p2a" path="res://Asset/UI/Bar/Value_bar_2.png" id="5_htf5l"]
+[ext_resource type="Texture2D" uid="uid://dcnyjhqeuqqun" path="res://Asset/UI/Bar/armor_bar_2.png" id="6_2xi0s"]
+[ext_resource type="Texture2D" uid="uid://c41rgx5x7ovyl" path="res://Asset/UI/Bar/Value_bar_2_filled.png" id="6_6n4yg"]
+[ext_resource type="Texture2D" uid="uid://dwo0ikxxcgl15" path="res://Asset/UI/Bar/HP_3.png" id="6_a2fo7"]
+[ext_resource type="Texture2D" uid="uid://cmom5hhlvwjre" path="res://Asset/UI/Weapon/ammo.png" id="8_e5tw2"]
+[ext_resource type="Texture2D" uid="uid://wj18c3fjd3vg" path="res://Asset/UI/Weapon/Fire_Mode.png" id="8_lffkv"]
+[ext_resource type="Texture2D" uid="uid://csr8b5trryxdc" path="res://Asset/UI/Bar/armor_bar_3.png" id="8_yn3px"]
+[ext_resource type="Texture2D" uid="uid://bugd6211kawic" path="res://Asset/UI/HUD_Icon/skill_icon.png" id="9_dh7ht"]
+[ext_resource type="Texture2D" uid="uid://dfoktto5vwqo" path="res://Asset/UI/Bar/tempered_1.png" id="9_uuqvy"]
+[ext_resource type="FontFile" uid="uid://x8ow84y6jjgc" path="res://Asset/UI/Font/Tourney-Black.ttf" id="10_a2xya"]
+[ext_resource type="Texture2D" uid="uid://dwgx17jhlonly" path="res://Asset/UI/HUD_Icon/skill_base.png" id="10_d15qp"]
+[ext_resource type="Texture2D" uid="uid://cnnkl8lgvgli0" path="res://Asset/UI/Bar/tempered_2.png" id="10_m6ruj"]
+[ext_resource type="Texture2D" uid="uid://dvjjqx2hcggqr" path="res://Asset/UI/Weapon/Gun.png" id="11_e0qc3"]
+[ext_resource type="Texture2D" uid="uid://bwh1i51rikbbo" path="res://Asset/UI/Bar/tempered_3.png" id="11_i6lni"]
+[ext_resource type="Texture2D" uid="uid://dfdj6d3pf236p" path="res://Asset/UI/Bar/skill_bar_1.png" id="12_51pom"]
+[ext_resource type="Texture2D" uid="uid://tuewqwtwg4kg" path="res://Asset/UI/Bar/skill_bar_2.png" id="13_r0p3l"]
+[ext_resource type="Texture2D" uid="uid://bfpe126ysu1b0" path="res://Asset/UI/Weapon/Line_1.png" id="13_wp5kw"]
+[ext_resource type="Texture2D" uid="uid://bfb5dpbfwvoyb" path="res://Asset/UI/Bar/ammo_bar_2.png" id="14_c4pgs"]
+[ext_resource type="Texture2D" uid="uid://dtyfb4kk8ihfv" path="res://Asset/UI/Weapon/Nade_class.png" id="15_jm70j"]
+[ext_resource type="Texture2D" uid="uid://bsoy2pbmhgw4" path="res://Asset/UI/Weapon/Nade_icon.png" id="16_fiijm"]
+[ext_resource type="Texture2D" uid="uid://0482oesi1qlc" path="res://Asset/UI/HUD_Icon/Backpack.png" id="17_ma0p8"]
+[ext_resource type="Texture2D" uid="uid://ym8kc7teoiw5" path="res://Asset/UI/HUD_Icon/Minimap.png" id="18_gkyv6"]
+[ext_resource type="Texture2D" uid="uid://c6nqfu6imeugu" path="res://Asset/UI/Box/1x1_taked.png" id="18_rycsi"]
+[ext_resource type="Texture2D" uid="uid://xrg03pe0e45p" path="res://Asset/UI/Bar/corruptor.png" id="23_2iwio"]
+[ext_resource type="Texture2D" uid="uid://bkjatgtwdpa1g" path="res://Asset/UI/HUD_Icon/mask.png" id="24_x4ubu"]
+[ext_resource type="Texture2D" uid="uid://i03e3n8saixr" path="res://Asset/UI/Screen/Mask.png" id="29_5m47f"]
+[ext_resource type="Texture2D" uid="uid://dnb2d5brh4wjh" path="res://Asset/UI/Screen/Mask3.png" id="30_1d5pu"]
+[ext_resource type="Texture2D" uid="uid://co2p2htnrnfkd" path="res://Asset/UI/Screen/Mask2.png" id="31_d02f6"]
+[ext_resource type="Texture2D" uid="uid://bs26ih3qol5ho" path="res://Asset/UI/Box/1x4/normal.png" id="31_tokp8"]
+[ext_resource type="Texture2D" uid="uid://cstbvenhl7dmy" path="res://Asset/UI/Screen/Hurt.png" id="31_yjyqs"]
+[ext_resource type="Texture2D" uid="uid://ym8fhf6fmi1n" path="res://Asset/UI/Box/1x4/hovered.png" id="32_b6ak2"]
+[ext_resource type="Texture2D" uid="uid://bycm1iv2n62v5" path="res://Asset/UI/Box/1x4/hovered2.png" id="32_db0pv"]
+[ext_resource type="Texture2D" uid="uid://vriu53d7yxmu" path="res://Asset/UI/Screen/Mask4.png" id="32_qsflk"]
+[ext_resource type="Shader" path="res://Script/Function/Shader/aberration.gdshader" id="32_r3dic"]
+[ext_resource type="Shader" path="res://Script/Function/Shader/Glitch.gdshader" id="33_fg0gf"]
+[ext_resource type="Texture2D" uid="uid://csj3kfdc24t3a" path="res://Asset/UI/Box/1x4/disable.png" id="33_h0tmu"]
+[ext_resource type="Texture2D" uid="uid://w0pd54tolweh" path="res://Asset/UI/Box/0x0mesh.png" id="33_qb2dx"]
+[ext_resource type="ButtonGroup" uid="uid://n2utaojnkdrb" path="res://Screen/Asset/Function/HUD/MenuGroup.tres" id="34_3v5i2"]
+[ext_resource type="Script" path="res://Script/Function/HUD/Menu.gd" id="34_30e8l"]
+[ext_resource type="Texture2D" uid="uid://mhvd7hhlwnnm" path="res://Asset/UI/Box/1x2/normal.png" id="34_kb6xs"]
+[ext_resource type="Texture2D" uid="uid://c51cs7ts3cuai" path="res://Asset/Texture/Effect/BigHexagon.png" id="35_m42xt"]
+[ext_resource type="Texture2D" uid="uid://rpe4m7664ut8" path="res://Asset/UI/Box/1x2/hovered2.png" id="35_ufive"]
+[ext_resource type="Texture2D" uid="uid://b3cjbtetqg0s" path="res://Asset/UI/Box/1x2/disable.png" id="36_3n33j"]
+[ext_resource type="FontFile" uid="uid://ckkg14tkp6d06" path="res://Asset/UI/Font/Jura-Bold.ttf" id="37_rlrra"]
+[ext_resource type="Texture2D" uid="uid://vts4uo4q834q" path="res://Asset/UI/Box/1x2/hovered.png" id="37_yrycy"]
+[ext_resource type="Texture2D" uid="uid://cmx0cr8xytimp" path="res://Asset/UI/Box/1x8/normal.png" id="43_yhmbv"]
+[ext_resource type="ButtonGroup" uid="uid://o0nhdbstgkse" path="res://Screen/Asset/Function/HUD/SettingGroup.tres" id="43_yl1ru"]
+[ext_resource type="Texture2D" uid="uid://bprgcjfv8duw4" path="res://Asset/UI/Box/1x8/disable.png" id="45_8uocj"]
+[ext_resource type="Texture2D" uid="uid://m1pwtp57ef5k" path="res://Asset/UI/Box/1x8/hovered.png" id="46_xf1y5"]
+[ext_resource type="Texture2D" uid="uid://doab7ukdn0sof" path="res://Asset/UI/Box/checkbox/check.png" id="47_laor2"]
+[ext_resource type="Texture2D" uid="uid://b1tgoociqbc1u" path="res://Asset/UI/Box/checkbox/checkdis.png" id="48_m6ut2"]
+[ext_resource type="Texture2D" uid="uid://dtbcjs4hhul1p" path="res://Asset/UI/Box/checkbox/uncheck.png" id="49_qg2nj"]
+[ext_resource type="Texture2D" uid="uid://2qxf678fqbuy" path="res://Asset/UI/Box/checkbox/radio2.png" id="50_lag7i"]
+[ext_resource type="Texture2D" uid="uid://dhkhqalnhholw" path="res://Asset/UI/Box/checkbox/uncheckdis.png" id="50_quesq"]
+[ext_resource type="Texture2D" uid="uid://nvbms58bsp2p" path="res://Asset/UI/Box/checkbox/radio.png" id="51_7ajok"]
+[ext_resource type="Texture2D" uid="uid://hr6d4mxljxsx" path="res://Asset/UI/Box/checkbox/expand.png" id="51_ybv0q"]
+[ext_resource type="Texture2D" uid="uid://b3qajbkd3udfx" path="res://Asset/UI/Box/checkbox/collapse.png" id="52_mhwhy"]
+[ext_resource type="Texture2D" uid="uid://dgv8yd4mrig5l" path="res://Asset/UI/Box/checkbox/Slider.png" id="53_54alh"]
+[ext_resource type="Texture2D" uid="uid://dyfol41guovyq" path="res://Asset/UI/Box/1x1/normal.png" id="56_mo5b8"]
+[ext_resource type="Script" path="res://Script/Function/HUD/Input.gd" id="56_xykb2"]
+[ext_resource type="Texture2D" uid="uid://vty5bh2jca22" path="res://Asset/UI/Box/1x1/hovered.png" id="57_1irv6"]
+[ext_resource type="Texture2D" uid="uid://bx52clhtq52ue" path="res://Asset/UI/Box/1x1/hovered2.png" id="58_yfyh5"]
+[ext_resource type="Texture2D" uid="uid://byf5rp3k320mi" path="res://Asset/UI/Box/1x1/disable.png" id="59_byog5"]
+[ext_resource type="Texture2D" uid="uid://cu25mfedslda3" path="res://Asset/UI/Box/1x8/hovered2.png" id="60_4lilj"]
+[ext_resource type="Texture2D" uid="uid://swfhs38qhyj4" path="res://Asset/UI/Box/checkbox/Slider2.png" id="61_e756f"]
+[ext_resource type="Texture2D" uid="uid://bi2nfr14mvw31" path="res://Asset/UI/Box/1x8/hovered3.png" id="61_tnlnq"]
+[ext_resource type="Texture2D" uid="uid://bmmdk8o80dtpo" path="res://Asset/UI/Box/checkbox/Sliderdis.png" id="63_h7hhm"]
+
+[sub_resource type="Animation" id="Animation_l4k6n"]
+resource_name = "Hurt"
+step = 0.025
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("HP:scale")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("HP:position")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.025, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(96, 1018), Vector2(80, 1018), Vector2(96, 1018), Vector2(96, 1018)]
+}
+
+[sub_resource type="Animation" id="Animation_44xhy"]
+resource_name = "Low"
+length = 1.00001
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("HP:scale")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.9, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1.05, 1.05), Vector2(1, 1), Vector2(1.05, 1.05), Vector2(1, 1), Vector2(1, 1), Vector2(1, 1), Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_pd1l3"]
+resource_name = "Off"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("HP:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("HP:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(96, 1018)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_xgll6"]
+_data = {
+"Hurt": SubResource("Animation_l4k6n"),
+"Low": SubResource("Animation_44xhy"),
+"Off": SubResource("Animation_pd1l3")
+}
+
+[sub_resource type="Gradient" id="Gradient_ijbtd"]
+offsets = PackedFloat32Array(0.691489, 1)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 0)
+
+[sub_resource type="Animation" id="Animation_opn66"]
+resource_name = "Fire"
+length = 0.8
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AmmoBar:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(17, 7), Vector2(13, 7), Vector2(13, 7)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Shell:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(4, 2)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Shell:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_benvx"]
+resource_name = "Stop"
+length = 0.200003
+step = 0.025
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AmmoBar:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(13, 7)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Shell:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Shell:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_3jfqd"]
+_data = {
+"Fire": SubResource("Animation_opn66"),
+"Stop": SubResource("Animation_benvx")
+}
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_na61m"]
+shader = ExtResource("33_fg0gf")
+shader_parameter/shake_power = 0.03
+shader_parameter/shake_rate = 0.2
+shader_parameter/shake_speed = 5.0
+shader_parameter/shake_block_size = 30.5
+shader_parameter/shake_color_rate = 0.01
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g807d"]
+bg_color = Color(1, 1, 1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pm2op"]
+bg_color = Color(1, 1, 1, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_clitw"]
+content_margin_left = 32.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gee25"]
+bg_color = Color(0.7, 0.7, 0.7, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rkomf"]
+bg_color = Color(1, 1, 1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7sogi"]
+content_margin_left = 6.0
+content_margin_right = 10.0
+bg_color = Color(0, 0, 0, 0.784314)
+border_width_left = 5
+border_width_right = 3
+expand_margin_left = 6.0
+expand_margin_right = 4.0
+
+[sub_resource type="Theme" id="Theme_ww7b4"]
+VScrollBar/styles/grabber = SubResource("StyleBoxFlat_gee25")
+VScrollBar/styles/grabber_highlight = SubResource("StyleBoxFlat_rkomf")
+VScrollBar/styles/grabber_pressed = SubResource("StyleBoxFlat_rkomf")
+VScrollBar/styles/scroll = null
+VScrollBar/styles/scroll_focus = SubResource("StyleBoxFlat_7sogi")
+
+[sub_resource type="AnimatedTexture" id="AnimatedTexture_6dwlc"]
+frames = 5
+frame_0/texture = ExtResource("46_xf1y5")
+frame_0/duration = 0.1
+frame_1/texture = ExtResource("60_4lilj")
+frame_1/duration = 0.1
+frame_2/texture = ExtResource("61_tnlnq")
+frame_2/duration = 0.1
+frame_3/texture = ExtResource("60_4lilj")
+frame_3/duration = 0.1
+frame_4/texture = ExtResource("46_xf1y5")
+frame_4/duration = 0.1
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_bvifh"]
+content_margin_left = 40.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_u4ais"]
+bg_color = Color(1, 1, 1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_53h00"]
+bg_color = Color(0, 0, 0, 0.392157)
+
+[sub_resource type="Theme" id="Theme_tirgs"]
+Button/styles/disabled = SubResource("StyleBoxEmpty_bvifh")
+Button/styles/focus = SubResource("StyleBoxEmpty_bvifh")
+Button/styles/hover = SubResource("StyleBoxEmpty_bvifh")
+Button/styles/normal = SubResource("StyleBoxEmpty_bvifh")
+Button/styles/pressed = SubResource("StyleBoxEmpty_bvifh")
+OptionButton/constants/arrow_margin = 32
+PopupMenu/colors/font_color = Color(1, 1, 1, 1)
+PopupMenu/colors/font_hover_color = Color(0, 0, 0, 1)
+PopupMenu/constants/item_start_padding = 8
+PopupMenu/constants/v_separation = 8
+PopupMenu/font_sizes/font_size = 20
+PopupMenu/fonts/font = ExtResource("37_rlrra")
+PopupMenu/icons/radio_checked = ExtResource("50_lag7i")
+PopupMenu/icons/radio_unchecked = ExtResource("51_7ajok")
+PopupMenu/styles/hover = SubResource("StyleBoxFlat_u4ais")
+PopupMenu/styles/panel = SubResource("StyleBoxFlat_53h00")
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_18tdw"]
+content_margin_left = 488.0
+content_margin_right = 33.0
+
+[sub_resource type="Theme" id="Theme_a8vsx"]
+Button/styles/disabled = SubResource("StyleBoxEmpty_18tdw")
+Button/styles/focus = SubResource("StyleBoxEmpty_18tdw")
+Button/styles/hover = SubResource("StyleBoxEmpty_18tdw")
+Button/styles/normal = SubResource("StyleBoxEmpty_18tdw")
+Button/styles/pressed = SubResource("StyleBoxEmpty_18tdw")
+CheckButton/styles/hover_pressed = SubResource("StyleBoxEmpty_18tdw")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vy7g3"]
+bg_color = Color(0, 0, 0, 0.776471)
+border_width_top = 8
+border_width_bottom = 8
+border_color = Color(0, 0, 0, 0.784314)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_i5van"]
+bg_color = Color(0.443137, 0.443137, 0.443137, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qwdq4"]
+bg_color = Color(0.7, 0.7, 0.7, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8febx"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0, 0, 0, 1)
+draw_center = false
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(1, 1, 1, 0.392157)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bfhxl"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.101961, 0.101961, 0.101961, 0.6)
+corner_detail = 5
+
+[sub_resource type="Theme" id="Theme_tcrhc"]
+default_font = ExtResource("37_rlrra")
+default_font_size = 20
+LineEdit/colors/caret_color = Color(0.74902, 0.74902, 0.74902, 1)
+LineEdit/colors/font_color = Color(1, 1, 1, 1)
+LineEdit/colors/font_selected_color = Color(0, 0, 0, 1)
+LineEdit/colors/selection_color = Color(0.501961, 0.501961, 0.501961, 1)
+LineEdit/styles/focus = SubResource("StyleBoxFlat_8febx")
+LineEdit/styles/normal = SubResource("StyleBoxFlat_bfhxl")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_e6g47"]
+shader = ExtResource("32_r3dic")
+shader_parameter/glitch_x = null
+shader_parameter/glitch_y = null
+
+[sub_resource type="Gradient" id="Gradient_0jf0t"]
+offsets = PackedFloat32Array(0, 0.191489, 1)
+colors = PackedColorArray(0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="Animation" id="Animation_goyxt"]
+resource_name = "Deploy"
+length = 2.00001
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.4, 0.45, 0.5, 0.6, 0.8, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0.75), Color(1, 1, 1, 1), Color(1, 1, 1, 0.5), Color(1, 1, 1, 0.5), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Mask:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0, -650), Vector2(0, 0), Vector2(0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Mask:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.5, 0.55, 0.6, 0.8, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0.75), Color(1, 1, 1, 1), Color(1, 1, 1, 0.5), Color(1, 1, 1, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Mask2:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(480, 1080), Vector2(480, 700), Vector2(480, 700)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Mask2:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0.5, 0.55, 0.6, 0.8, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0.75), Color(1, 1, 1, 1), Color(1, 1, 1, 0.5), Color(1, 1, 1, 0)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("MaskR:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(-800, 0), Vector2(0, 0), Vector2(0, 0)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("MaskR:modulate")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0.6, 0.65, 0.7, 0.8, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0.75), Color(1, 1, 1, 1), Color(1, 1, 1, 0.5), Color(1, 1, 1, 0)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("MaskL:position")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1920, 0), Vector2(1120, 0), Vector2(1120, 0)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("MaskL:modulate")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0.6, 0.65, 0.7, 0.8, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0.75), Color(1, 1, 1, 1), Color(1, 1, 1, 0.5), Color(1, 1, 1, 0)]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath(".:scale")
+tracks/9/interp = 2
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0.6, 0.8, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1.5, 1.5), Vector2(1.5, 1.5)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_owx4k"]
+_data = {
+"Deploy": SubResource("Animation_goyxt")
+}
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_jyea6"]
+resource_local_to_scene = true
+shader = ExtResource("2_bqoxi")
+shader_parameter/color = Color(0.282353, 0, 0.501961, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_u3huo"]
+shader = ExtResource("2_bqoxi")
+shader_parameter/color = Color(0.0784314, 0, 0, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_xa0nt"]
+shader = ExtResource("32_r3dic")
+shader_parameter/glitch_x = 1.0
+shader_parameter/glitch_y = null
+
+[node name="UI" type="CanvasLayer"]
+process_mode = 3
+script = ExtResource("1_o75vx")
+metadata/_edit_horizontal_guides_ = [1018.0]
+
+[node name="Hud1" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(960, 540)
+texture = ExtResource("2_gtk0e")
+
+[node name="Grid" type="TextureRect" parent="."]
+modulate = Color(0.560784, 0.560784, 0.560784, 0.0784314)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -8.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("2_gtolj")
+stretch_mode = 1
+metadata/_edit_lock_ = true
+
+[node name="Stat" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -1080.0
+offset_right = 1920.0
+grow_vertical = 0
+mouse_filter = 2
+
+[node name="Back3" type="TextureRect" parent="Stat"]
+visible = false
+modulate = Color(0, 0, 0, 0.392157)
+show_behind_parent = true
+layout_mode = 1
+offset_top = 984.0
+offset_right = 704.0
+offset_bottom = 1060.0
+mouse_filter = 2
+texture = ExtResource("18_rycsi")
+
+[node name="Line" type="TextureRect" parent="Stat"]
+visible = false
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -40.0
+offset_right = 704.0
+grow_vertical = 0
+texture = ExtResource("4_n84fe")
+
+[node name="HP" type="TextureProgressBar" parent="Stat"]
+layout_mode = 0
+offset_left = 96.0
+offset_top = 1018.0
+offset_right = 416.0
+offset_bottom = 1030.0
+pivot_offset = Vector2(160, 6)
+value = 85.0
+texture_over = ExtResource("2_3ggvv")
+texture_progress = ExtResource("3_5pc8r")
+
+[node name="Back" type="ColorRect" parent="Stat/HP"]
+show_behind_parent = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 0.392157)
+
+[node name="SmoothHP" type="TextureProgressBar" parent="Stat/HP"]
+show_behind_parent = true
+layout_mode = 1
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_right = 304.0
+grow_vertical = 2
+value = 95.0
+texture_progress = ExtResource("6_a2fo7")
+
+[node name="Anim" type="AnimationPlayer" parent="Stat/HP"]
+root_node = NodePath("../..")
+libraries = {
+"": SubResource("AnimationLibrary_xgll6")
+}
+
+[node name="Armor1" type="TextureProgressBar" parent="Stat"]
+layout_mode = 0
+offset_left = 96.0
+offset_top = 1000.0
+offset_right = 192.0
+offset_bottom = 1012.0
+pivot_offset = Vector2(50, 6)
+max_value = 50.0
+texture_over = ExtResource("5_313v1")
+texture_progress = ExtResource("6_2xi0s")
+
+[node name="Back" type="ColorRect" parent="Stat/Armor1"]
+show_behind_parent = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 0.392157)
+
+[node name="Break" type="CPUParticles2D" parent="Stat/Armor1"]
+position = Vector2(50, 6)
+emitting = false
+amount = 25
+lifetime = 0.5
+one_shot = true
+explosiveness = 1.0
+emission_shape = 3
+emission_rect_extents = Vector2(48, 0)
+direction = Vector2(0, -1)
+initial_velocity_max = 200.0
+scale_amount_min = 4.0
+scale_amount_max = 4.0
+color = Color(0.698039, 0.698039, 0.698039, 1)
+color_ramp = SubResource("Gradient_ijbtd")
+
+[node name="Armor2" type="TextureProgressBar" parent="Stat"]
+layout_mode = 0
+offset_left = 206.0
+offset_top = 1000.0
+offset_right = 306.0
+offset_bottom = 1012.0
+pivot_offset = Vector2(50, 6)
+max_value = 50.0
+texture_over = ExtResource("5_313v1")
+texture_progress = ExtResource("6_2xi0s")
+
+[node name="Back" type="ColorRect" parent="Stat/Armor2"]
+show_behind_parent = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 0.392157)
+
+[node name="Break" type="CPUParticles2D" parent="Stat/Armor2"]
+position = Vector2(50, 6)
+emitting = false
+amount = 25
+lifetime = 0.5
+one_shot = true
+explosiveness = 1.0
+emission_shape = 3
+emission_rect_extents = Vector2(48, 0)
+direction = Vector2(0, -1)
+initial_velocity_max = 200.0
+scale_amount_min = 4.0
+scale_amount_max = 4.0
+color = Color(0.698039, 0.698039, 0.698039, 1)
+color_ramp = SubResource("Gradient_ijbtd")
+
+[node name="Armor3" type="TextureProgressBar" parent="Stat"]
+layout_mode = 0
+offset_left = 316.0
+offset_top = 1000.0
+offset_right = 416.0
+offset_bottom = 1012.0
+pivot_offset = Vector2(50, 6)
+max_value = 50.0
+texture_over = ExtResource("5_313v1")
+texture_progress = ExtResource("6_2xi0s")
+
+[node name="Back" type="ColorRect" parent="Stat/Armor3"]
+show_behind_parent = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 0.392157)
+
+[node name="Break" type="CPUParticles2D" parent="Stat/Armor3"]
+position = Vector2(50, 6)
+emitting = false
+amount = 25
+lifetime = 0.5
+one_shot = true
+explosiveness = 1.0
+emission_shape = 3
+emission_rect_extents = Vector2(48, 0)
+direction = Vector2(0, -1)
+initial_velocity_max = 200.0
+scale_amount_min = 4.0
+scale_amount_max = 4.0
+color = Color(0.698039, 0.698039, 0.698039, 1)
+color_ramp = SubResource("Gradient_ijbtd")
+
+[node name="Armor4" type="TextureProgressBar" parent="Stat"]
+visible = false
+layout_mode = 0
+offset_left = 320.0
+offset_top = 1000.0
+offset_right = 416.0
+offset_bottom = 1012.0
+pivot_offset = Vector2(48, 6)
+max_value = 50.0
+texture_over = ExtResource("5_313v1")
+texture_progress = ExtResource("8_yn3px")
+
+[node name="Back" type="ColorRect" parent="Stat/Armor4"]
+show_behind_parent = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1.0
+offset_top = 1.0
+offset_right = -1.0
+offset_bottom = -1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 0.392157)
+
+[node name="Armor5" type="TextureProgressBar" parent="Stat"]
+visible = false
+layout_mode = 0
+offset_left = 96.0
+offset_top = 1000.0
+offset_right = 240.0
+offset_bottom = 1012.0
+pivot_offset = Vector2(48, 6)
+max_value = 75.0
+texture_over = ExtResource("9_uuqvy")
+texture_progress = ExtResource("10_m6ruj")
+
+[node name="Back" type="ColorRect" parent="Stat/Armor5"]
+show_behind_parent = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 0.392157)
+
+[node name="Break" type="CPUParticles2D" parent="Stat/Armor5"]
+position = Vector2(76, 6)
+emitting = false
+amount = 25
+lifetime = 0.5
+one_shot = true
+explosiveness = 1.0
+emission_shape = 3
+emission_rect_extents = Vector2(76, 0)
+direction = Vector2(0, -1)
+initial_velocity_max = 200.0
+scale_amount_min = 4.0
+scale_amount_max = 4.0
+color = Color(0.698039, 0.698039, 0.698039, 1)
+color_ramp = SubResource("Gradient_ijbtd")
+
+[node name="Armor6" type="TextureProgressBar" parent="Stat"]
+visible = false
+layout_mode = 0
+offset_left = 320.0
+offset_top = 1000.0
+offset_right = 464.0
+offset_bottom = 1012.0
+scale = Vector2(-1, 1)
+pivot_offset = Vector2(48, 6)
+max_value = 75.0
+fill_mode = 1
+texture_over = ExtResource("9_uuqvy")
+texture_progress = ExtResource("10_m6ruj")
+
+[node name="Back" type="ColorRect" parent="Stat/Armor6"]
+show_behind_parent = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 0.392157)
+
+[node name="Break" type="CPUParticles2D" parent="Stat/Armor6"]
+position = Vector2(76, 6)
+emitting = false
+amount = 25
+lifetime = 0.5
+one_shot = true
+explosiveness = 1.0
+emission_shape = 3
+emission_rect_extents = Vector2(76, 0)
+direction = Vector2(0, -1)
+initial_velocity_max = 200.0
+scale_amount_min = 4.0
+scale_amount_max = 4.0
+color = Color(0.698039, 0.698039, 0.698039, 1)
+color_ramp = SubResource("Gradient_ijbtd")
+
+[node name="Armor7" type="TextureProgressBar" parent="Stat"]
+visible = false
+layout_mode = 0
+offset_left = 320.0
+offset_top = 1000.0
+offset_right = 464.0
+offset_bottom = 1012.0
+scale = Vector2(-1, 1)
+pivot_offset = Vector2(48, 6)
+max_value = 75.0
+fill_mode = 1
+texture_over = ExtResource("9_uuqvy")
+texture_progress = ExtResource("11_i6lni")
+
+[node name="Back" type="ColorRect" parent="Stat/Armor7"]
+show_behind_parent = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 0.392157)
+
+[node name="Armor" type="Node2D" parent="Stat"]
+self_modulate = Color(0.44, 0.44, 0.44, 1)
+position = Vector2(448, 1016)
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="Stat/Armor"]
+offset_left = -25.0
+offset_top = 21.0
+offset_right = 25.0
+offset_bottom = 29.0
+max_value = 300.0
+texture_over = ExtResource("12_51pom")
+texture_progress = ExtResource("13_r0p3l")
+
+[node name="Label" type="Label" parent="Stat/Armor"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 31.0
+offset_top = -19.0
+offset_right = 63.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.698039, 0.698039, 0.698039, 1)
+theme_override_fonts/font = ExtResource("10_a2xya")
+theme_override_font_sizes/font_size = 32
+text = "12"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="Armor2" type="Sprite2D" parent="Stat/Armor"]
+modulate = Color(0.439216, 0.439216, 0.439216, 1)
+texture = ExtResource("10_d15qp")
+hframes = 8
+frame = 5
+
+[node name="Armor" type="Sprite2D" parent="Stat/Armor"]
+texture = ExtResource("9_dh7ht")
+hframes = 8
+vframes = 2
+frame = 13
+
+[node name="Label" type="Label" parent="Stat"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -880.0
+offset_top = 198.0
+offset_right = -688.0
+offset_bottom = 238.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(0, 20)
+theme_override_colors/font_color = Color(0.698039, 0.698039, 0.698039, 1)
+theme_override_fonts/font = ExtResource("10_a2xya")
+theme_override_font_sizes/font_size = 32
+text = "$12"
+vertical_alignment = 1
+
+[node name="Minimap" type="Sprite2D" parent="Stat"]
+position = Vector2(640, 1016)
+texture = ExtResource("18_gkyv6")
+
+[node name="Icon" type="Sprite2D" parent="Stat"]
+position = Vector2(576, 1016)
+texture = ExtResource("17_ma0p8")
+
+[node name="Weapon" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -1920.0
+offset_top = -1080.0
+grow_horizontal = 0
+grow_vertical = 0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+mouse_filter = 2
+
+[node name="Back3" type="TextureRect" parent="Weapon"]
+visible = false
+modulate = Color(0, 0, 0, 0.392157)
+show_behind_parent = true
+layout_mode = 0
+offset_left = 1920.0
+offset_top = 984.0
+offset_right = 2624.0
+offset_bottom = 1060.0
+scale = Vector2(-1, 1)
+mouse_filter = 2
+texture = ExtResource("18_rycsi")
+
+[node name="Line" type="TextureRect" parent="Weapon"]
+visible = false
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -40.0
+offset_right = 704.0
+grow_horizontal = 0
+grow_vertical = 0
+scale = Vector2(-1, 1)
+texture = ExtResource("4_n84fe")
+
+[node name="Lethal" type="Sprite2D" parent="Weapon"]
+self_modulate = Color(0.439216, 0.439216, 0.439216, 1)
+position = Vector2(1760, 952)
+texture = ExtResource("15_jm70j")
+hframes = 4
+vframes = 2
+
+[node name="Take" type="Sprite2D" parent="Weapon/Lethal"]
+position = Vector2(-32, 0)
+scale = Vector2(1e-05, 1)
+texture = ExtResource("18_rycsi")
+offset = Vector2(32, 0)
+
+[node name="Nade" type="Sprite2D" parent="Weapon/Lethal"]
+texture = ExtResource("16_fiijm")
+hframes = 4
+vframes = 2
+
+[node name="Bar" type="TextureProgressBar" parent="Weapon/Lethal"]
+anchors_preset = -1
+anchor_left = -0.078
+anchor_top = 0.344
+anchor_right = 0.047
+anchor_bottom = 0.344
+offset_left = -24.008
+offset_top = -44.016
+offset_right = -24.008
+offset_bottom = -0.0160007
+max_value = 2.0
+step = 0.001
+fill_mode = 3
+texture_under = ExtResource("5_htf5l")
+texture_progress = ExtResource("6_6n4yg")
+metadata/_edit_use_anchors_ = true
+
+[node name="Tactical" type="Sprite2D" parent="Weapon"]
+self_modulate = Color(0.439216, 0.439216, 0.439216, 1)
+position = Vector2(1824, 952)
+texture = ExtResource("15_jm70j")
+hframes = 4
+vframes = 2
+frame = 5
+
+[node name="Take" type="Sprite2D" parent="Weapon/Tactical"]
+position = Vector2(-32, 0)
+scale = Vector2(1e-05, 1)
+texture = ExtResource("18_rycsi")
+offset = Vector2(32, 0)
+
+[node name="Nade" type="Sprite2D" parent="Weapon/Tactical"]
+texture = ExtResource("16_fiijm")
+hframes = 4
+vframes = 2
+frame = 4
+
+[node name="Bar" type="TextureProgressBar" parent="Weapon/Tactical"]
+anchors_preset = -1
+anchor_left = -0.078
+anchor_top = 0.344
+anchor_right = 0.047
+anchor_bottom = 0.344
+offset_left = -24.008
+offset_top = -44.016
+offset_right = -24.008
+offset_bottom = -0.0160007
+max_value = 2.0
+step = 0.001
+fill_mode = 3
+texture_under = ExtResource("5_htf5l")
+texture_progress = ExtResource("6_6n4yg")
+metadata/_edit_use_anchors_ = true
+
+[node name="Gun" type="Sprite2D" parent="Weapon"]
+self_modulate = Color(0.7, 0.7, 0.7, 1)
+position = Vector2(1472, 1016)
+texture = ExtResource("11_e0qc3")
+hframes = 10
+vframes = 5
+frame = 13
+
+[node name="FireMode" type="Sprite2D" parent="Weapon/Gun"]
+position = Vector2(-210, 14)
+texture = ExtResource("8_lffkv")
+hframes = 10
+
+[node name="FireMode2" type="Sprite2D" parent="Weapon/Gun"]
+position = Vector2(-146, 14)
+texture = ExtResource("8_lffkv")
+hframes = 10
+
+[node name="Ammo" type="Sprite2D" parent="Weapon"]
+position = Vector2(1728, 1016)
+
+[node name="Line" type="Sprite2D" parent="Weapon/Ammo"]
+texture = ExtResource("13_wp5kw")
+
+[node name="Type" type="Sprite2D" parent="Weapon/Ammo"]
+position = Vector2(90, -9)
+texture = ExtResource("8_e5tw2")
+vframes = 5
+frame = 1
+
+[node name="Shell" type="Sprite2D" parent="Weapon/Ammo"]
+position = Vector2(14, 15)
+texture = ExtResource("14_c4pgs")
+hframes = 80
+
+[node name="AmmoBar" type="TextureProgressBar" parent="Weapon/Ammo"]
+anchors_preset = -1
+anchor_left = 22.8
+anchor_top = 25.65
+anchor_right = 47.925
+anchor_bottom = 26.9
+offset_left = -5.8
+offset_top = -18.65
+offset_right = 129.075
+offset_bottom = -3.9
+grow_horizontal = 0
+grow_vertical = 0
+max_value = 40.0
+value = 40.0
+allow_greater = true
+texture_progress = ExtResource("14_c4pgs")
+
+[node name="CurrentAmmo" type="Label" parent="Weapon/Ammo"]
+layout_direction = 2
+offset_left = -120.0
+offset_top = -37.0
+offset_right = -8.0
+offset_bottom = 38.0
+pivot_offset = Vector2(56, 37)
+theme_override_colors/font_color = Color(0.703125, 0.703125, 0.703125, 1)
+theme_override_fonts/font = ExtResource("10_a2xya")
+theme_override_font_sizes/font_size = 65
+text = "000"
+horizontal_alignment = 2
+
+[node name="ReverseAmmo" type="Label" parent="Weapon/Ammo"]
+layout_direction = 2
+offset_left = 12.0
+offset_top = -33.0
+offset_right = 138.0
+offset_bottom = 12.0
+pivot_offset = Vector2(28, 25)
+theme_override_colors/font_color = Color(0.701961, 0.701961, 0.701961, 1)
+theme_override_fonts/font = ExtResource("10_a2xya")
+theme_override_font_sizes/font_size = 37
+text = "120"
+vertical_alignment = 2
+
+[node name="Ani" type="AnimationPlayer" parent="Weapon/Ammo"]
+libraries = {
+"": SubResource("AnimationLibrary_3jfqd")
+}
+
+[node name="Sentry" type="Sprite2D" parent="Weapon"]
+self_modulate = Color(0.7, 0.7, 0.7, 1)
+position = Vector2(1824, 888)
+texture = ExtResource("9_dh7ht")
+hframes = 8
+vframes = 2
+frame = 3
+
+[node name="Class" type="Sprite2D" parent="Weapon/Sentry"]
+modulate = Color(0.44, 0.44, 0.44, 1)
+show_behind_parent = true
+texture = ExtResource("10_d15qp")
+hframes = 8
+frame = 3
+
+[node name="CD" type="TextureProgressBar" parent="Weapon/Sentry"]
+offset_left = -25.0
+offset_top = 24.0
+offset_right = 25.0
+offset_bottom = 32.0
+max_value = 200.0
+texture_over = ExtResource("12_51pom")
+texture_progress = ExtResource("13_r0p3l")
+
+[node name="Skill" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -1080.0
+offset_right = 1920.0
+offset_bottom = -0.00317383
+grow_vertical = 0
+mouse_filter = 2
+
+[node name="CD" type="TextureProgressBar" parent="Skill"]
+layout_mode = 0
+offset_left = 96.0
+offset_top = 856.0
+offset_right = 224.0
+offset_bottom = 984.0
+max_value = 120.0
+fill_mode = 4
+texture_progress = ExtResource("23_2iwio")
+
+[node name="Mask" type="Sprite2D" parent="Skill"]
+position = Vector2(160, 920)
+texture = ExtResource("24_x4ubu")
+
+[node name="Atkskill" type="Sprite2D" parent="Skill"]
+self_modulate = Color(0.7, 0.7, 0.7, 1)
+position = Vector2(192, 824)
+texture = ExtResource("9_dh7ht")
+hframes = 8
+vframes = 2
+frame = 5
+
+[node name="Class" type="Sprite2D" parent="Skill/Atkskill"]
+modulate = Color(0.44, 0.44, 0.44, 1)
+show_behind_parent = true
+texture = ExtResource("10_d15qp")
+hframes = 8
+frame = 5
+
+[node name="CD" type="TextureProgressBar" parent="Skill/Atkskill"]
+offset_left = -25.0
+offset_top = 23.0
+offset_right = 25.0
+offset_bottom = 31.0
+max_value = 400.0
+texture_over = ExtResource("12_51pom")
+texture_progress = ExtResource("13_r0p3l")
+
+[node name="Tacskill" type="Sprite2D" parent="Skill"]
+self_modulate = Color(0.7, 0.7, 0.7, 1)
+position = Vector2(128, 824)
+texture = ExtResource("9_dh7ht")
+hframes = 8
+vframes = 2
+frame = 8
+
+[node name="Class" type="Sprite2D" parent="Skill/Tacskill"]
+modulate = Color(0.44, 0.44, 0.44, 1)
+show_behind_parent = true
+texture = ExtResource("10_d15qp")
+hframes = 8
+
+[node name="CD" type="TextureProgressBar" parent="Skill/Tacskill"]
+offset_left = -25.0
+offset_top = 23.0
+offset_right = 25.0
+offset_bottom = 31.0
+max_value = 200.0
+texture_over = ExtResource("12_51pom")
+texture_progress = ExtResource("13_r0p3l")
+
+[node name="Defskill" type="Sprite2D" parent="Skill"]
+self_modulate = Color(0.7, 0.7, 0.7, 1)
+position = Vector2(256, 888)
+texture = ExtResource("9_dh7ht")
+hframes = 8
+vframes = 2
+frame = 10
+
+[node name="Class" type="Sprite2D" parent="Skill/Defskill"]
+modulate = Color(0.44, 0.44, 0.44, 1)
+show_behind_parent = true
+texture = ExtResource("10_d15qp")
+hframes = 8
+frame = 2
+
+[node name="CD" type="TextureProgressBar" parent="Skill/Defskill"]
+offset_left = -25.0
+offset_top = 23.0
+offset_right = 25.0
+offset_bottom = 31.0
+max_value = 200.0
+texture_over = ExtResource("12_51pom")
+texture_progress = ExtResource("13_r0p3l")
+
+[node name="Meleeskill" type="Sprite2D" parent="Skill"]
+self_modulate = Color(0.7, 0.7, 0.7, 1)
+position = Vector2(256, 952)
+texture = ExtResource("9_dh7ht")
+hframes = 8
+vframes = 2
+frame = 4
+
+[node name="Class" type="Sprite2D" parent="Skill/Meleeskill"]
+modulate = Color(0.44, 0.44, 0.44, 1)
+show_behind_parent = true
+texture = ExtResource("10_d15qp")
+hframes = 8
+frame = 4
+
+[node name="CD" type="TextureProgressBar" parent="Skill/Meleeskill"]
+offset_left = -25.0
+offset_top = 23.0
+offset_right = 25.0
+offset_bottom = 31.0
+max_value = 200.0
+texture_over = ExtResource("12_51pom")
+texture_progress = ExtResource("13_r0p3l")
+
+[node name="Menu" type="Control" parent="."]
+material = SubResource("ShaderMaterial_na61m")
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
+mouse_filter = 2
+script = ExtResource("34_30e8l")
+
+[node name="Color" type="ColorRect" parent="Menu"]
+modulate = Color(0.2, 0.2, 0.2, 0.784314)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = -1080.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+metadata/_edit_lock_ = true
+
+[node name="Grid2" type="TextureRect" parent="Menu"]
+modulate = Color(0, 0, 0, 0.392157)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -8.0
+offset_bottom = -1088.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("33_qb2dx")
+expand_mode = 1
+stretch_mode = 1
+metadata/_edit_lock_ = true
+
+[node name="Grid" type="TextureRect" parent="Menu"]
+modulate = Color(1, 1, 1, 0.196078)
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -1088.0
+grow_horizontal = 2
+grow_vertical = 0
+pivot_offset = Vector2(0, 544)
+mouse_filter = 2
+texture = ExtResource("2_gtolj")
+expand_mode = 1
+stretch_mode = 1
+metadata/_edit_lock_ = true
+
+[node name="Menu" type="HFlowContainer" parent="Menu"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.133333
+anchor_top = 0.5
+anchor_right = 0.133333
+anchor_bottom = 0.5
+offset_left = -608.0
+offset_top = -164.0
+offset_right = -352.0
+offset_bottom = 156.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(32, 0)
+mouse_filter = 2
+theme_override_constants/h_separation = 0
+theme_override_constants/v_separation = 0
+
+[node name="Setting" type="TextureButton" parent="Menu/Menu"]
+layout_mode = 2
+toggle_mode = true
+button_group = ExtResource("34_3v5i2")
+texture_normal = ExtResource("31_tokp8")
+texture_pressed = ExtResource("32_b6ak2")
+texture_hover = ExtResource("32_db0pv")
+texture_disabled = ExtResource("33_h0tmu")
+texture_focused = ExtResource("32_db0pv")
+
+[node name="Label" type="Label" parent="Menu/Menu/Setting"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("37_rlrra")
+theme_override_font_sizes/font_size = 20
+text = "settings"
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+
+[node name="Self" type="TextureButton" parent="Menu/Menu"]
+layout_mode = 2
+toggle_mode = true
+button_group = ExtResource("34_3v5i2")
+texture_normal = ExtResource("31_tokp8")
+texture_pressed = ExtResource("32_b6ak2")
+texture_hover = ExtResource("32_db0pv")
+texture_disabled = ExtResource("33_h0tmu")
+texture_focused = ExtResource("32_db0pv")
+
+[node name="Label" type="Label" parent="Menu/Menu/Self"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("37_rlrra")
+theme_override_font_sizes/font_size = 20
+text = "self-recall"
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+
+[node name="Achieve" type="TextureButton" parent="Menu/Menu"]
+layout_mode = 2
+toggle_mode = true
+button_group = ExtResource("34_3v5i2")
+texture_normal = ExtResource("31_tokp8")
+texture_pressed = ExtResource("32_b6ak2")
+texture_hover = ExtResource("32_db0pv")
+texture_disabled = ExtResource("33_h0tmu")
+texture_focused = ExtResource("32_db0pv")
+
+[node name="Label" type="Label" parent="Menu/Menu/Achieve"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("37_rlrra")
+theme_override_font_sizes/font_size = 20
+text = "achievements"
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+
+[node name="Hide" type="TextureButton" parent="Menu/Menu"]
+layout_mode = 2
+toggle_mode = true
+button_group = ExtResource("34_3v5i2")
+texture_normal = ExtResource("31_tokp8")
+texture_pressed = ExtResource("32_b6ak2")
+texture_hover = ExtResource("32_db0pv")
+texture_disabled = ExtResource("33_h0tmu")
+texture_focused = ExtResource("32_db0pv")
+
+[node name="Label" type="Label" parent="Menu/Menu/Hide"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("37_rlrra")
+theme_override_font_sizes/font_size = 20
+text = "Hide UI"
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+
+[node name="Lobby" type="TextureButton" parent="Menu/Menu"]
+layout_mode = 2
+toggle_mode = true
+button_group = ExtResource("34_3v5i2")
+texture_normal = ExtResource("34_kb6xs")
+texture_pressed = ExtResource("37_yrycy")
+texture_hover = ExtResource("35_ufive")
+texture_disabled = ExtResource("36_3n33j")
+texture_focused = ExtResource("35_ufive")
+
+[node name="Label" type="Label" parent="Menu/Menu/Lobby"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("37_rlrra")
+theme_override_font_sizes/font_size = 20
+text = "lobby"
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+
+[node name="Quit" type="TextureButton" parent="Menu/Menu"]
+layout_mode = 2
+toggle_mode = true
+button_group = ExtResource("34_3v5i2")
+texture_normal = ExtResource("34_kb6xs")
+texture_pressed = ExtResource("37_yrycy")
+texture_hover = ExtResource("35_ufive")
+texture_disabled = ExtResource("36_3n33j")
+texture_focused = ExtResource("35_ufive")
+
+[node name="Label" type="Label" parent="Menu/Menu/Quit"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("37_rlrra")
+theme_override_font_sizes/font_size = 20
+text = "exit"
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+
+[node name="Quit" type="TextureButton" parent="Menu/Menu/Quit"]
+process_mode = 3
+layout_mode = 0
+offset_left = 128.0
+offset_right = 256.0
+offset_bottom = 64.0
+focus_mode = 0
+texture_normal = ExtResource("34_kb6xs")
+texture_hover = ExtResource("35_ufive")
+texture_disabled = ExtResource("36_3n33j")
+texture_focused = ExtResource("37_yrycy")
+
+[node name="Label" type="Label" parent="Menu/Menu/Quit/Quit"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("37_rlrra")
+theme_override_font_sizes/font_size = 20
+text = "exit!"
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+
+[node name="Label2" type="Label" parent="Menu/Menu/Quit"]
+use_parent_material = true
+layout_mode = 0
+offset_left = 1.0
+offset_top = -34.0
+offset_right = 255.0
+offset_bottom = -1.0
+size_flags_horizontal = 4
+size_flags_vertical = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("37_rlrra")
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxFlat_g807d")
+text = "quit to desktop?"
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+
+[node name="ProgressBar" type="ProgressBar" parent="Menu/Menu/Quit"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.008
+anchor_top = 0.891
+anchor_right = 1.992
+anchor_bottom = 0.984
+offset_left = -0.024
+offset_top = -0.0240021
+offset_right = 0.0239868
+offset_bottom = 0.0239983
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_styles/fill = SubResource("StyleBoxFlat_pm2op")
+step = 1.0
+show_percentage = false
+
+[node name="Setting" type="VBoxContainer" parent="Menu"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.366667
+anchor_right = -0.366667
+offset_left = 640.0
+offset_top = 376.0
+offset_right = 896.0
+offset_bottom = 696.0
+theme_override_constants/separation = 0
+alignment = 1
+
+[node name="Setting" type="TextureButton" parent="Menu/Setting"]
+layout_mode = 2
+toggle_mode = true
+button_group = ExtResource("43_yl1ru")
+texture_normal = ExtResource("31_tokp8")
+texture_pressed = ExtResource("32_b6ak2")
+texture_hover = ExtResource("32_db0pv")
+texture_disabled = ExtResource("33_h0tmu")
+texture_focused = ExtResource("32_db0pv")
+
+[node name="Label" type="Label" parent="Menu/Setting/Setting"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("37_rlrra")
+theme_override_font_sizes/font_size = 20
+text = "General"
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+
+[node name="Scroll" type="ScrollContainer" parent="Menu/Setting/Setting"]
+visible = false
+layout_mode = 1
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_left = 288.0
+offset_top = -192.0
+offset_right = 1064.0
+offset_bottom = 448.0
+grow_vertical = 2
+follow_focus = true
+horizontal_scroll_mode = 0
+
+[node name="Setting" type="VBoxContainer" parent="Menu/Setting/Setting/Scroll"]
+visible = false
+layout_mode = 2
+theme_override_constants/separation = 0
+alignment = 1
+
+[node name="Label" type="Label" parent="Menu/Setting/Setting/Scroll/Setting"]
+custom_minimum_size = Vector2(0, 32)
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("37_rlrra")
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxEmpty_clitw")
+text = "Gameplay"
+vertical_alignment = 1
+uppercase = true
+
+[node name="Faststep" type="TextureButton" parent="Menu/Setting/Setting/Scroll/Setting"]
+process_mode = 3
+layout_mode = 2
+focus_mode = 0
+texture_normal = ExtResource("43_yhmbv")
+texture_hover = ExtResource("46_xf1y5")
+texture_disabled = ExtResource("45_8uocj")
+texture_focused = ExtResource("46_xf1y5")
+
+[node name="Label" type="Label" parent="Menu/Setting/Setting/Scroll/Setting/Faststep"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.583
+anchor_bottom = 1.0
+offset_left = 32.0
+offset_right = 0.255981
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("37_rlrra")
+theme_override_font_sizes/font_size = 20
+text = "fast step"
+vertical_alignment = 1
+text_overrun_behavior = 4
+uppercase = true
+
+[node name="CheckButton" type="CheckButton" parent="Menu/Setting/Setting/Scroll/Setting/Faststep"]
+layout_mode = 1
+offset_left = 666.0
+offset_top = 12.0
+offset_right = 742.0
+offset_bottom = 52.0
+focus_mode = 0
+mouse_filter = 1
+theme_override_icons/checked = ExtResource("47_laor2")
+theme_override_icons/checked_disabled = ExtResource("48_m6ut2")
+theme_override_icons/unchecked = ExtResource("49_qg2nj")
+theme_override_icons/unchecked_disabled = ExtResource("50_quesq")
+
+[node name="Control" type="TextureButton" parent="Menu/Setting"]
+layout_mode = 2
+toggle_mode = true
+button_group = ExtResource("43_yl1ru")
+texture_normal = ExtResource("31_tokp8")
+texture_pressed = ExtResource("32_b6ak2")
+texture_hover = ExtResource("32_db0pv")
+texture_disabled = ExtResource("33_h0tmu")
+texture_focused = ExtResource("32_db0pv")
+
+[node name="Label" type="Label" parent="Menu/Setting/Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("37_rlrra")
+theme_override_font_sizes/font_size = 20
+text = "Control"
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+
+[node name="Scroll" type="ScrollContainer" parent="Menu/Setting/Control"]
+visible = false
+layout_mode = 1
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_left = 289.001
+offset_top = -64.0
+offset_right = 1065.0
+offset_bottom = 512.0
+grow_vertical = 2
+theme = SubResource("Theme_ww7b4")
+follow_focus = true
+scroll_vertical = 100
+horizontal_scroll_mode = 0
+
+[node name="Setting" type="VBoxContainer" parent="Menu/Setting/Control/Scroll"]
+layout_mode = 2
+theme_override_constants/separation = 0
+alignment = 1
+
+[node name="style" type="TextureButton" parent="Menu/Setting/Control/Scroll/Setting"]
+process_mode = 3
+layout_mode = 2
+toggle_mode = true
+texture_normal = ExtResource("43_yhmbv")
+texture_pressed = ExtResource("46_xf1y5")
+texture_hover = ExtResource("46_xf1y5")
+texture_disabled = ExtResource("45_8uocj")
+texture_focused = SubResource("AnimatedTexture_6dwlc")
+
+[node name="Style" type="OptionButton" parent="Menu/Setting/Control/Scroll/Setting/style"]
+custom_minimum_size = Vector2(0, 64)
+layout_mode = 2
+offset_left = 448.0
+offset_right = 768.0
+offset_bottom = 64.0
+mouse_filter = 1
+theme = SubResource("Theme_tirgs")
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("37_rlrra")
+theme_override_font_sizes/font_size = 20
+theme_override_icons/arrow = ExtResource("51_ybv0q")
+toggle_mode = false
+flat = true
+item_count = 4
+selected = 0
+popup/item_0/text = "DEFAULT"
+popup/item_0/id = 0
+popup/item_1/text = "AGGRESSIVE"
+popup/item_1/id = 1
+popup/item_2/text = "CLOSE QUARTER"
+popup/item_2/id = 2
+popup/item_3/text = "MARKSMAN"
+popup/item_3/id = 3
+
+[node name="Label" type="Label" parent="Menu/Setting/Control/Scroll/Setting/style"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.583
+anchor_bottom = 1.0
+offset_left = 32.0
+offset_right = 0.255981
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("37_rlrra")
+theme_override_font_sizes/font_size = 20
+text = "PLAY STYLE PRESENTS"
+vertical_alignment = 1
+text_overrun_behavior = 4
+uppercase = true
+
+[node name="Key" type="CheckButton" parent="Menu/Setting/Control/Scroll/Setting"]
+custom_minimum_size = Vector2(0, 64)
+layout_mode = 2
+theme = SubResource("Theme_a8vsx")
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("37_rlrra")
+theme_override_font_sizes/font_size = 20
+theme_override_icons/checked = ExtResource("52_mhwhy")
+theme_override_icons/unchecked = ExtResource("51_ybv0q")
+
+[node name="Label" type="Label" parent="Menu/Setting/Control/Scroll/Setting/Key"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.583
+anchor_bottom = 1.0
+offset_left = 32.0
+offset_right = 0.255981
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("37_rlrra")
+theme_override_font_sizes/font_size = 20
+text = "CUSTOM KEYBINDS"
+vertical_alignment = 1
+text_overrun_behavior = 4
+uppercase = true
+
+[node name="TextureButton" type="TextureButton" parent="Menu/Setting/Control/Scroll/Setting/Key"]
+process_mode = 3
+show_behind_parent = true
+layout_mode = 2
+offset_right = 768.0
+offset_bottom = 64.0
+mouse_filter = 1
+texture_normal = ExtResource("43_yhmbv")
+texture_pressed = ExtResource("46_xf1y5")
+texture_hover = ExtResource("46_xf1y5")
+texture_disabled = ExtResource("45_8uocj")
+texture_focused = SubResource("AnimatedTexture_6dwlc")
+
+[node name="Input" type="VBoxContainer" parent="Menu/Setting/Control/Scroll/Setting"]
+layout_mode = 2
+theme_override_constants/separation = 0
+alignment = 1
+script = ExtResource("56_xykb2")
+
+[node name="Aim" type="Label" parent="Menu/Setting/Control/Scroll/Setting"]
+custom_minimum_size = Vector2(0, 32)
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("37_rlrra")
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxEmpty_clitw")
+text = "Crosshair & aiming"
+vertical_alignment = 1
+uppercase = true
+
+[node name="Controller" type="CheckButton" parent="Menu/Setting/Control/Scroll/Setting"]
+custom_minimum_size = Vector2(0, 64)
+layout_mode = 2
+theme = SubResource("Theme_a8vsx")
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("37_rlrra")
+theme_override_font_sizes/font_size = 20
+theme_override_icons/checked = ExtResource("47_laor2")
+theme_override_icons/checked_disabled = ExtResource("48_m6ut2")
+theme_override_icons/unchecked = ExtResource("49_qg2nj")
+theme_override_icons/unchecked_disabled = ExtResource("50_quesq")
+text = "ENABLED"
+
+[node name="Label" type="Label" parent="Menu/Setting/Control/Scroll/Setting/Controller"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.583
+anchor_bottom = 1.0
+offset_left = 32.0
+offset_right = 0.255981
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("37_rlrra")
+theme_override_font_sizes/font_size = 20
+text = "USE CONTROLLER TO AIM"
+vertical_alignment = 1
+text_overrun_behavior = 4
+uppercase = true
+
+[node name="TextureButton" type="TextureButton" parent="Menu/Setting/Control/Scroll/Setting/Controller"]
+process_mode = 3
+show_behind_parent = true
+layout_mode = 2
+offset_right = 768.0
+offset_bottom = 64.0
+mouse_filter = 1
+texture_normal = ExtResource("43_yhmbv")
+texture_pressed = ExtResource("46_xf1y5")
+texture_hover = ExtResource("46_xf1y5")
+texture_disabled = ExtResource("45_8uocj")
+texture_focused = SubResource("AnimatedTexture_6dwlc")
+
+[node name="Stick" type="CheckButton" parent="Menu/Setting/Control/Scroll/Setting"]
+custom_minimum_size = Vector2(0, 64)
+layout_mode = 2
+theme = SubResource("Theme_a8vsx")
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("37_rlrra")
+theme_override_font_sizes/font_size = 20
+theme_override_icons/checked = ExtResource("47_laor2")
+theme_override_icons/checked_disabled = ExtResource("48_m6ut2")
+theme_override_icons/unchecked = ExtResource("49_qg2nj")
+theme_override_icons/unchecked_disabled = ExtResource("50_quesq")
+text = "ENABLED"
+
+[node name="Label" type="Label" parent="Menu/Setting/Control/Scroll/Setting/Stick"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.583
+anchor_bottom = 1.0
+offset_left = 32.0
+offset_right = 0.255981
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("37_rlrra")
+theme_override_font_sizes/font_size = 20
+text = "AIM TO STICK DIRECTION"
+vertical_alignment = 1
+text_overrun_behavior = 4
+uppercase = true
+
+[node name="TextureButton" type="TextureButton" parent="Menu/Setting/Control/Scroll/Setting/Stick"]
+process_mode = 3
+show_behind_parent = true
+layout_mode = 2
+offset_right = 768.0
+offset_bottom = 64.0
+mouse_filter = 1
+texture_normal = ExtResource("43_yhmbv")
+texture_pressed = ExtResource("46_xf1y5")
+texture_hover = ExtResource("46_xf1y5")
+texture_disabled = ExtResource("45_8uocj")
+texture_focused = SubResource("AnimatedTexture_6dwlc")
+
+[node name="Zoom" type="CheckButton" parent="Menu/Setting/Control/Scroll/Setting"]
+custom_minimum_size = Vector2(0, 64)
+layout_mode = 2
+theme = SubResource("Theme_a8vsx")
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("37_rlrra")
+theme_override_font_sizes/font_size = 20
+theme_override_icons/checked = ExtResource("47_laor2")
+theme_override_icons/checked_disabled = ExtResource("48_m6ut2")
+theme_override_icons/unchecked = ExtResource("49_qg2nj")
+theme_override_icons/unchecked_disabled = ExtResource("50_quesq")
+text = "ENABLED"
+
+[node name="Label" type="Label" parent="Menu/Setting/Control/Scroll/Setting/Zoom"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.583
+anchor_bottom = 1.0
+offset_left = 32.0
+offset_right = 0.255981
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("37_rlrra")
+theme_override_font_sizes/font_size = 20
+text = "ZOOM BASED ON MOUSE DISTANCE
+"
+vertical_alignment = 1
+text_overrun_behavior = 4
+uppercase = true
+
+[node name="TextureButton" type="TextureButton" parent="Menu/Setting/Control/Scroll/Setting/Zoom"]
+process_mode = 3
+show_behind_parent = true
+layout_mode = 2
+offset_right = 768.0
+offset_bottom = 64.0
+mouse_filter = 1
+texture_normal = ExtResource("43_yhmbv")
+texture_pressed = ExtResource("46_xf1y5")
+texture_hover = ExtResource("46_xf1y5")
+texture_disabled = ExtResource("45_8uocj")
+texture_focused = SubResource("AnimatedTexture_6dwlc")
+
+[node name="Crosshair" type="TextureButton" parent="Menu/Setting/Control/Scroll/Setting"]
+process_mode = 3
+show_behind_parent = true
+layout_mode = 2
+texture_normal = ExtResource("43_yhmbv")
+texture_pressed = ExtResource("46_xf1y5")
+texture_hover = ExtResource("46_xf1y5")
+texture_disabled = ExtResource("45_8uocj")
+texture_focused = SubResource("AnimatedTexture_6dwlc")
+
+[node name="Label" type="Label" parent="Menu/Setting/Control/Scroll/Setting/Crosshair"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.583
+anchor_bottom = 1.0
+offset_left = 32.0
+offset_right = 0.25592
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("37_rlrra")
+theme_override_font_sizes/font_size = 20
+text = "CROSSHAIR CONTROL"
+vertical_alignment = 1
+text_overrun_behavior = 4
+uppercase = true
+
+[node name="OptionButton" type="OptionButton" parent="Menu/Setting/Control/Scroll/Setting/Crosshair"]
+custom_minimum_size = Vector2(0, 64)
+layout_mode = 2
+anchor_left = 0.0950521
+anchor_right = 0.0950521
+offset_left = 375.0
+offset_right = 695.0
+offset_bottom = 64.0
+mouse_filter = 1
+theme = SubResource("Theme_tirgs")
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_constants/arrow_margin = 36
+theme_override_fonts/font = ExtResource("37_rlrra")
+theme_override_font_sizes/font_size = 20
+theme_override_icons/arrow = ExtResource("51_ybv0q")
+flat = true
+item_count = 4
+selected = 0
+popup/item_0/text = "ON SCREEN"
+popup/item_0/id = 0
+popup/item_1/text = "ON PLAYER"
+popup/item_1/id = 1
+popup/item_2/text = "ON WORLD"
+popup/item_2/id = 2
+popup/item_3/text = "MOUSE"
+popup/item_3/id = 3
+
+[node name="Sens" type="TextureButton" parent="Menu/Setting/Control/Scroll/Setting"]
+process_mode = 3
+layout_mode = 2
+toggle_mode = true
+texture_normal = ExtResource("43_yhmbv")
+texture_pressed = ExtResource("46_xf1y5")
+texture_hover = ExtResource("46_xf1y5")
+texture_disabled = ExtResource("45_8uocj")
+texture_focused = SubResource("AnimatedTexture_6dwlc")
+
+[node name="Label" type="Label" parent="Menu/Setting/Control/Scroll/Setting/Sens"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.583
+anchor_bottom = 1.0
+offset_left = 32.0
+offset_right = 0.255981
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("37_rlrra")
+theme_override_font_sizes/font_size = 20
+text = "MOUSE SENSITIVITY
+"
+vertical_alignment = 1
+text_overrun_behavior = 4
+uppercase = true
+
+[node name="HSlider" type="HSlider" parent="Menu/Setting/Control/Scroll/Setting/Sens"]
+layout_mode = 0
+offset_left = 576.0
+offset_top = 24.0
+offset_right = 736.0
+offset_bottom = 40.0
+mouse_filter = 1
+theme_override_constants/center_grabber = 0
+theme_override_constants/grabber_offset = 0
+theme_override_icons/grabber = ExtResource("61_e756f")
+theme_override_icons/grabber_highlight = ExtResource("53_54alh")
+theme_override_icons/grabber_disabled = ExtResource("63_h7hhm")
+theme_override_styles/slider = SubResource("StyleBoxFlat_vy7g3")
+theme_override_styles/grabber_area = SubResource("StyleBoxFlat_i5van")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxFlat_qwdq4")
+max_value = 2.0
+step = 0.1
+value = 2.0
+scrollable = false
+
+[node name="SpinBox" type="SpinBox" parent="Menu/Setting/Control/Scroll/Setting/Sens"]
+layout_mode = 0
+offset_left = 478.0
+offset_top = 17.0
+offset_right = 565.0
+offset_bottom = 50.0
+mouse_filter = 1
+theme = SubResource("Theme_tcrhc")
+max_value = 2.0
+step = 0.1
+update_on_text_changed = true
+custom_arrow_step = 0.01
+
+[node name="JoyX" type="TextureButton" parent="Menu/Setting/Control/Scroll/Setting"]
+process_mode = 3
+layout_mode = 2
+toggle_mode = true
+texture_normal = ExtResource("43_yhmbv")
+texture_pressed = ExtResource("46_xf1y5")
+texture_hover = ExtResource("46_xf1y5")
+texture_disabled = ExtResource("45_8uocj")
+texture_focused = SubResource("AnimatedTexture_6dwlc")
+
+[node name="Label" type="Label" parent="Menu/Setting/Control/Scroll/Setting/JoyX"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.583
+anchor_bottom = 1.0
+offset_left = 32.0
+offset_right = 0.255981
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("37_rlrra")
+theme_override_font_sizes/font_size = 20
+text = "Horizontal stick sensitivity"
+vertical_alignment = 1
+text_overrun_behavior = 4
+uppercase = true
+
+[node name="HSlider" type="HSlider" parent="Menu/Setting/Control/Scroll/Setting/JoyX"]
+layout_mode = 0
+offset_left = 576.0
+offset_top = 24.0
+offset_right = 736.0
+offset_bottom = 40.0
+mouse_filter = 1
+theme_override_constants/center_grabber = 0
+theme_override_constants/grabber_offset = 0
+theme_override_icons/grabber = ExtResource("61_e756f")
+theme_override_icons/grabber_highlight = ExtResource("53_54alh")
+theme_override_icons/grabber_disabled = ExtResource("63_h7hhm")
+theme_override_styles/slider = SubResource("StyleBoxFlat_vy7g3")
+theme_override_styles/grabber_area = SubResource("StyleBoxFlat_i5van")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxFlat_qwdq4")
+max_value = 10.0
+value = 5.0
+scrollable = false
+
+[node name="SpinBox" type="SpinBox" parent="Menu/Setting/Control/Scroll/Setting/JoyX"]
+layout_mode = 0
+offset_left = 478.0
+offset_top = 17.0
+offset_right = 565.0
+offset_bottom = 50.0
+mouse_filter = 1
+theme = SubResource("Theme_tcrhc")
+max_value = 10.0
+value = 5.0
+custom_arrow_step = 1.0
+
+[node name="JoyY" type="TextureButton" parent="Menu/Setting/Control/Scroll/Setting"]
+process_mode = 3
+layout_mode = 2
+toggle_mode = true
+texture_normal = ExtResource("43_yhmbv")
+texture_pressed = ExtResource("46_xf1y5")
+texture_hover = ExtResource("46_xf1y5")
+texture_disabled = ExtResource("45_8uocj")
+texture_focused = SubResource("AnimatedTexture_6dwlc")
+
+[node name="Label" type="Label" parent="Menu/Setting/Control/Scroll/Setting/JoyY"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.583
+anchor_bottom = 1.0
+offset_left = 32.0
+offset_right = 0.255981
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("37_rlrra")
+theme_override_font_sizes/font_size = 20
+text = "Vertical stick sensitivity
+"
+vertical_alignment = 1
+text_overrun_behavior = 4
+uppercase = true
+
+[node name="HSlider" type="HSlider" parent="Menu/Setting/Control/Scroll/Setting/JoyY"]
+layout_mode = 0
+offset_left = 576.0
+offset_top = 24.0
+offset_right = 736.0
+offset_bottom = 40.0
+mouse_filter = 1
+theme_override_constants/center_grabber = 0
+theme_override_constants/grabber_offset = 0
+theme_override_icons/grabber = ExtResource("61_e756f")
+theme_override_icons/grabber_highlight = ExtResource("53_54alh")
+theme_override_icons/grabber_disabled = ExtResource("63_h7hhm")
+theme_override_styles/slider = SubResource("StyleBoxFlat_vy7g3")
+theme_override_styles/grabber_area = SubResource("StyleBoxFlat_i5van")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxFlat_qwdq4")
+max_value = 10.0
+value = 5.0
+scrollable = false
+
+[node name="SpinBox" type="SpinBox" parent="Menu/Setting/Control/Scroll/Setting/JoyY"]
+layout_mode = 0
+offset_left = 478.0
+offset_top = 17.0
+offset_right = 565.0
+offset_bottom = 50.0
+focus_mode = 1
+mouse_filter = 1
+theme = SubResource("Theme_tcrhc")
+max_value = 10.0
+value = 10.0
+custom_arrow_step = 1.0
+
+[node name="Label" type="Label" parent="Menu/Setting/Control/Scroll/Setting"]
+custom_minimum_size = Vector2(0, 32)
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("37_rlrra")
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxEmpty_clitw")
+text = "Movement"
+vertical_alignment = 1
+uppercase = true
+
+[node name="Faststep" type="CheckButton" parent="Menu/Setting/Control/Scroll/Setting"]
+custom_minimum_size = Vector2(0, 64)
+layout_mode = 2
+theme = SubResource("Theme_a8vsx")
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("37_rlrra")
+theme_override_font_sizes/font_size = 20
+theme_override_icons/checked = ExtResource("47_laor2")
+theme_override_icons/checked_disabled = ExtResource("48_m6ut2")
+theme_override_icons/unchecked = ExtResource("49_qg2nj")
+theme_override_icons/unchecked_disabled = ExtResource("50_quesq")
+text = "ENABLED"
+
+[node name="Label" type="Label" parent="Menu/Setting/Control/Scroll/Setting/Faststep"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.583
+anchor_bottom = 1.0
+offset_left = 32.0
+offset_right = 0.255981
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("37_rlrra")
+theme_override_font_sizes/font_size = 20
+text = "fast step"
+vertical_alignment = 1
+text_overrun_behavior = 4
+uppercase = true
+
+[node name="TextureButton" type="TextureButton" parent="Menu/Setting/Control/Scroll/Setting/Faststep"]
+process_mode = 3
+show_behind_parent = true
+layout_mode = 2
+offset_right = 768.0
+offset_bottom = 64.0
+mouse_filter = 1
+texture_normal = ExtResource("43_yhmbv")
+texture_pressed = ExtResource("46_xf1y5")
+texture_hover = ExtResource("46_xf1y5")
+texture_disabled = ExtResource("45_8uocj")
+texture_focused = SubResource("AnimatedTexture_6dwlc")
+
+[node name="Crouch" type="CheckButton" parent="Menu/Setting/Control/Scroll/Setting"]
+custom_minimum_size = Vector2(0, 64)
+layout_mode = 2
+theme = SubResource("Theme_a8vsx")
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("37_rlrra")
+theme_override_font_sizes/font_size = 20
+theme_override_icons/checked = ExtResource("47_laor2")
+theme_override_icons/checked_disabled = ExtResource("48_m6ut2")
+theme_override_icons/unchecked = ExtResource("49_qg2nj")
+theme_override_icons/unchecked_disabled = ExtResource("50_quesq")
+text = "ENABLED"
+
+[node name="Label" type="Label" parent="Menu/Setting/Control/Scroll/Setting/Crouch"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.583
+anchor_bottom = 1.0
+offset_left = 32.0
+offset_right = 0.255981
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("37_rlrra")
+theme_override_font_sizes/font_size = 20
+text = "hold to crouch"
+vertical_alignment = 1
+text_overrun_behavior = 4
+uppercase = true
+
+[node name="TextureButton" type="TextureButton" parent="Menu/Setting/Control/Scroll/Setting/Crouch"]
+process_mode = 3
+show_behind_parent = true
+layout_mode = 2
+offset_right = 768.0
+offset_bottom = 64.0
+mouse_filter = 1
+texture_normal = ExtResource("43_yhmbv")
+texture_pressed = ExtResource("46_xf1y5")
+texture_hover = ExtResource("46_xf1y5")
+texture_disabled = ExtResource("45_8uocj")
+texture_focused = SubResource("AnimatedTexture_6dwlc")
+
+[node name="Doubletap" type="TextureButton" parent="Menu/Setting/Control/Scroll/Setting"]
+process_mode = 3
+show_behind_parent = true
+layout_mode = 2
+texture_normal = ExtResource("43_yhmbv")
+texture_pressed = ExtResource("46_xf1y5")
+texture_hover = ExtResource("46_xf1y5")
+texture_disabled = ExtResource("45_8uocj")
+texture_focused = SubResource("AnimatedTexture_6dwlc")
+
+[node name="Label" type="Label" parent="Menu/Setting/Control/Scroll/Setting/Doubletap"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.583
+anchor_bottom = 1.0
+offset_left = 32.0
+offset_right = 0.255951
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("37_rlrra")
+theme_override_font_sizes/font_size = 20
+text = "Double tap move button"
+vertical_alignment = 1
+text_overrun_behavior = 4
+uppercase = true
+
+[node name="OptionButton" type="OptionButton" parent="Menu/Setting/Control/Scroll/Setting/Doubletap"]
+custom_minimum_size = Vector2(0, 64)
+layout_mode = 2
+anchor_left = 0.00130161
+anchor_top = -2.0
+anchor_right = 0.00130161
+anchor_bottom = -2.0
+offset_left = 447.0
+offset_top = 128.0
+offset_right = 768.0
+offset_bottom = 192.0
+focus_mode = 0
+mouse_filter = 1
+theme = SubResource("Theme_tirgs")
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("37_rlrra")
+theme_override_font_sizes/font_size = 20
+theme_override_icons/arrow = ExtResource("51_ybv0q")
+flat = true
+item_count = 4
+selected = 0
+popup/item_0/text = "DASH + SPRINT"
+popup/item_0/id = 0
+popup/item_1/text = "DASH ONLY"
+popup/item_1/id = 1
+popup/item_2/text = "SPRINT ONLY"
+popup/item_2/id = 2
+popup/item_3/text = "NONE"
+popup/item_3/id = 3
+
+[node name="Shift" type="TextureButton" parent="Menu/Setting/Control/Scroll/Setting"]
+process_mode = 3
+show_behind_parent = true
+layout_mode = 2
+texture_normal = ExtResource("43_yhmbv")
+texture_pressed = ExtResource("46_xf1y5")
+texture_hover = ExtResource("46_xf1y5")
+texture_disabled = ExtResource("45_8uocj")
+texture_focused = SubResource("AnimatedTexture_6dwlc")
+
+[node name="Label" type="Label" parent="Menu/Setting/Control/Scroll/Setting/Shift"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.583
+anchor_bottom = 1.0
+offset_left = 32.0
+offset_right = 0.255951
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("37_rlrra")
+theme_override_font_sizes/font_size = 20
+text = "Sprint button"
+vertical_alignment = 1
+text_overrun_behavior = 4
+uppercase = true
+
+[node name="OptionButton" type="OptionButton" parent="Menu/Setting/Control/Scroll/Setting/Shift"]
+custom_minimum_size = Vector2(0, 64)
+layout_mode = 2
+offset_left = 448.0
+offset_right = 768.0
+offset_bottom = 64.0
+focus_mode = 0
+mouse_filter = 1
+theme = SubResource("Theme_tirgs")
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("37_rlrra")
+theme_override_font_sizes/font_size = 20
+theme_override_icons/arrow = ExtResource("51_ybv0q")
+flat = true
+item_count = 3
+selected = 0
+popup/item_0/text = "DASH + SPRINT"
+popup/item_0/id = 0
+popup/item_1/text = "DASH ONLY"
+popup/item_1/id = 1
+popup/item_2/text = "SPRINT ONLY"
+popup/item_2/id = 2
+
+[node name="Description" type="VBoxContainer" parent="Menu/Setting/Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1152.0
+offset_top = -64.0
+offset_right = 1664.0
+offset_bottom = 512.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Title" type="Label" parent="Menu/Setting/Control/Description"]
+custom_minimum_size = Vector2(0, 64)
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("37_rlrra")
+theme_override_font_sizes/font_size = 40
+text = "PAUSED"
+vertical_alignment = 1
+uppercase = true
+
+[node name="TextureRect" type="TextureRect" parent="Menu/Setting/Control/Description"]
+layout_mode = 2
+
+[node name="Text" type="Label" parent="Menu/Setting/Control/Description"]
+custom_minimum_size = Vector2(0, 256)
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("37_rlrra")
+theme_override_font_sizes/font_size = 20
+text = "PAUSED"
+uppercase = true
+
+[node name="Graphic" type="TextureButton" parent="Menu/Setting"]
+layout_mode = 2
+toggle_mode = true
+button_group = ExtResource("43_yl1ru")
+texture_normal = ExtResource("31_tokp8")
+texture_pressed = ExtResource("32_b6ak2")
+texture_hover = ExtResource("32_db0pv")
+texture_disabled = ExtResource("33_h0tmu")
+texture_focused = ExtResource("32_db0pv")
+
+[node name="Label" type="Label" parent="Menu/Setting/Graphic"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("37_rlrra")
+theme_override_font_sizes/font_size = 20
+text = "Graphic"
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+
+[node name="Audio" type="TextureButton" parent="Menu/Setting"]
+layout_mode = 2
+toggle_mode = true
+button_group = ExtResource("43_yl1ru")
+texture_normal = ExtResource("31_tokp8")
+texture_pressed = ExtResource("32_b6ak2")
+texture_hover = ExtResource("32_db0pv")
+texture_disabled = ExtResource("33_h0tmu")
+texture_focused = ExtResource("32_db0pv")
+
+[node name="Label" type="Label" parent="Menu/Setting/Audio"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("37_rlrra")
+theme_override_font_sizes/font_size = 20
+text = "audio"
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+
+[node name="Scroll" type="ScrollContainer" parent="Menu/Setting/Audio"]
+visible = false
+layout_mode = 1
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_left = 288.0
+offset_top = -192.0
+offset_right = 1064.0
+offset_bottom = 384.0
+grow_vertical = 2
+theme = SubResource("Theme_ww7b4")
+follow_focus = true
+horizontal_scroll_mode = 0
+
+[node name="Setting" type="VBoxContainer" parent="Menu/Setting/Audio/Scroll"]
+layout_mode = 2
+theme_override_constants/separation = 0
+alignment = 1
+
+[node name="Label" type="Label" parent="Menu/Setting/Audio/Scroll/Setting"]
+visible = false
+custom_minimum_size = Vector2(0, 32)
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("37_rlrra")
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxEmpty_clitw")
+text = "Movement"
+vertical_alignment = 1
+uppercase = true
+
+[node name="Master" type="TextureButton" parent="Menu/Setting/Audio/Scroll/Setting"]
+process_mode = 3
+layout_mode = 2
+texture_normal = ExtResource("43_yhmbv")
+texture_hover = ExtResource("46_xf1y5")
+texture_disabled = ExtResource("45_8uocj")
+texture_focused = ExtResource("46_xf1y5")
+
+[node name="Label" type="Label" parent="Menu/Setting/Audio/Scroll/Setting/Master"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.583
+anchor_bottom = 1.0
+offset_left = 32.0
+offset_right = 0.255981
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("37_rlrra")
+theme_override_font_sizes/font_size = 20
+text = "MASTER VOLUME
+"
+vertical_alignment = 1
+text_overrun_behavior = 4
+uppercase = true
+
+[node name="HSlider" type="HSlider" parent="Menu/Setting/Audio/Scroll/Setting/Master"]
+layout_mode = 0
+offset_left = 576.0
+offset_top = 24.0
+offset_right = 736.0
+offset_bottom = 40.0
+mouse_filter = 1
+theme_override_constants/center_grabber = 0
+theme_override_constants/grabber_offset = 0
+theme_override_icons/grabber = ExtResource("53_54alh")
+theme_override_icons/grabber_highlight = ExtResource("53_54alh")
+theme_override_icons/grabber_disabled = ExtResource("53_54alh")
+theme_override_styles/slider = SubResource("StyleBoxFlat_vy7g3")
+theme_override_styles/grabber_area = SubResource("StyleBoxFlat_i5van")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxFlat_qwdq4")
+value = 50.0
+scrollable = false
+
+[node name="SpinBox" type="SpinBox" parent="Menu/Setting/Audio/Scroll/Setting/Master"]
+layout_mode = 0
+offset_left = 478.0
+offset_top = 17.0
+offset_right = 565.0
+offset_bottom = 50.0
+focus_mode = 1
+mouse_filter = 1
+theme = SubResource("Theme_tcrhc")
+update_on_text_changed = true
+custom_arrow_step = 0.01
+
+[node name="CheckButton" type="CheckButton" parent="Menu/Setting/Audio/Scroll/Setting"]
+custom_minimum_size = Vector2(0, 64)
+layout_mode = 2
+focus_mode = 0
+mouse_filter = 1
+theme = SubResource("Theme_a8vsx")
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("37_rlrra")
+theme_override_font_sizes/font_size = 20
+theme_override_icons/checked = ExtResource("47_laor2")
+theme_override_icons/checked_disabled = ExtResource("48_m6ut2")
+theme_override_icons/unchecked = ExtResource("49_qg2nj")
+theme_override_icons/unchecked_disabled = ExtResource("50_quesq")
+text = "ENABLED"
+
+[node name="Label" type="Label" parent="Menu/Setting/Audio/Scroll/Setting/CheckButton"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.583
+anchor_bottom = 1.0
+offset_left = 33.0
+offset_right = 0.255981
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("37_rlrra")
+theme_override_font_sizes/font_size = 20
+text = "MONO"
+vertical_alignment = 1
+text_overrun_behavior = 4
+uppercase = true
+
+[node name="Mono" type="TextureButton" parent="Menu/Setting/Audio/Scroll/Setting/CheckButton"]
+process_mode = 3
+show_behind_parent = true
+layout_mode = 2
+offset_left = 0.000671387
+offset_right = 768.001
+offset_bottom = 64.0
+texture_normal = ExtResource("43_yhmbv")
+texture_hover = ExtResource("46_xf1y5")
+texture_disabled = ExtResource("45_8uocj")
+texture_focused = ExtResource("46_xf1y5")
+
+[node name="Support" type="TextureButton" parent="Menu/Setting"]
+layout_mode = 2
+toggle_mode = true
+button_group = ExtResource("43_yl1ru")
+texture_normal = ExtResource("31_tokp8")
+texture_pressed = ExtResource("32_b6ak2")
+texture_hover = ExtResource("32_db0pv")
+texture_disabled = ExtResource("33_h0tmu")
+texture_focused = ExtResource("32_db0pv")
+
+[node name="Label" type="Label" parent="Menu/Setting/Support"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("37_rlrra")
+theme_override_font_sizes/font_size = 20
+text = "support"
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+
+[node name="Back" type="TextureButton" parent="Menu"]
+layout_mode = 2
+offset_left = 160.0
+offset_top = 312.0
+offset_right = 224.0
+offset_bottom = 376.0
+keep_pressed_outside = true
+texture_normal = ExtResource("56_mo5b8")
+texture_pressed = ExtResource("57_1irv6")
+texture_hover = ExtResource("58_yfyh5")
+texture_disabled = ExtResource("59_byog5")
+texture_focused = ExtResource("58_yfyh5")
+
+[node name="Line" type="ColorRect" parent="Menu/Back"]
+layout_mode = 0
+offset_left = 22.0
+offset_top = 20.0
+offset_right = 54.0
+offset_bottom = 22.0
+rotation = 0.785398
+
+[node name="Line2" type="ColorRect" parent="Menu/Back"]
+layout_mode = 0
+offset_left = 22.0
+offset_top = 41.0
+offset_right = 54.0
+offset_bottom = 43.0
+rotation = -0.785398
+pivot_offset = Vector2(0, 2)
+
+[node name="Paused" type="Label" parent="Menu"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 64.0
+offset_top = 56.0
+offset_right = -1472.0
+offset_bottom = -896.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("37_rlrra")
+theme_override_font_sizes/font_size = 96
+text = "PAUSED"
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+
+[node name="Glitch" type="ColorRect" parent="Menu"]
+material = SubResource("ShaderMaterial_e6g47")
+layout_mode = 1
+mouse_filter = 2
+metadata/_edit_lock_ = true
+
+[node name="BreakL" type="CPUParticles2D" parent="."]
+position = Vector2(0, 540)
+emitting = false
+amount = 25
+one_shot = true
+speed_scale = 3.0
+explosiveness = 1.0
+texture = ExtResource("35_m42xt")
+emission_shape = 3
+emission_rect_extents = Vector2(256, 1080)
+gravity = Vector2(0, 0)
+initial_velocity_max = 200.0
+scale_amount_min = 0.25
+scale_amount_max = 0.75
+color_ramp = SubResource("Gradient_0jf0t")
+
+[node name="BreakR" type="CPUParticles2D" parent="."]
+position = Vector2(1920, 540)
+emitting = false
+amount = 25
+one_shot = true
+speed_scale = 3.0
+explosiveness = 1.0
+texture = ExtResource("35_m42xt")
+emission_shape = 3
+emission_rect_extents = Vector2(256, 1080)
+direction = Vector2(-1, 0)
+spread = 0.0
+gravity = Vector2(0, 0)
+initial_velocity_max = 200.0
+scale_amount_min = 0.25
+scale_amount_max = 0.75
+color_ramp = SubResource("Gradient_0jf0t")
+
+[node name="Hurt" type="TextureRect" parent="."]
+modulate = Color(1, 1, 1, 0)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("31_yjyqs")
+metadata/_edit_lock_ = true
+
+[node name="Mask" type="TextureRect" parent="."]
+self_modulate = Color(1, 1, 1, 0)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.5, 1.5)
+pivot_offset = Vector2(960, 540)
+mouse_filter = 2
+texture = ExtResource("29_5m47f")
+expand_mode = 3
+metadata/_edit_group_ = true
+metadata/_edit_lock_ = true
+
+[node name="Mask" type="TextureRect" parent="Mask"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+offset_bottom = 650.0
+grow_horizontal = 2
+pivot_offset = Vector2(960, 650)
+mouse_filter = 2
+texture = ExtResource("30_1d5pu")
+expand_mode = 3
+
+[node name="Mask2" type="TextureRect" parent="Mask"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 480.0
+offset_top = -380.0
+offset_right = -480.0
+offset_bottom = 0.000732422
+grow_horizontal = 2
+grow_vertical = 0
+pivot_offset = Vector2(480, 0)
+mouse_filter = 2
+texture = ExtResource("31_d02f6")
+expand_mode = 3
+
+[node name="MaskR" type="TextureRect" parent="Mask"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = -1
+anchor_bottom = 1.0
+offset_right = 800.0
+grow_vertical = 2
+pivot_offset = Vector2(800, 540)
+mouse_filter = 2
+texture = ExtResource("32_qsflk")
+expand_mode = 3
+
+[node name="MaskL" type="TextureRect" parent="Mask"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -800.0
+grow_horizontal = 0
+grow_vertical = 2
+pivot_offset = Vector2(0, 540)
+mouse_filter = 2
+texture = ExtResource("32_qsflk")
+expand_mode = 3
+flip_h = true
+
+[node name="Ani" type="AnimationPlayer" parent="Mask"]
+libraries = {
+"": SubResource("AnimationLibrary_owx4k")
+}
+
+[node name="Flash" type="ColorRect" parent="."]
+modulate = Color(1, 1, 1, 0)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(10, 10)
+mouse_filter = 2
+metadata/_edit_lock_ = true
+
+[node name="Color" type="ColorRect" parent="."]
+visible = false
+modulate = Color(1, 1, 1, 0.235294)
+material = SubResource("ShaderMaterial_jyea6")
+custom_minimum_size = Vector2(1920, 1080)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+metadata/_edit_lock_ = true
+
+[node name="Corruptor" type="ColorRect" parent="."]
+visible = false
+material = SubResource("ShaderMaterial_u3huo")
+custom_minimum_size = Vector2(1920, 1080)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+metadata/_edit_lock_ = true
+
+[node name="CanvasModulate" type="CanvasModulate" parent="Corruptor"]
+visible = false
+color = Color(0.831373, 0.8, 1, 1)
+
+[node name="BackBufferCopy" type="BackBufferCopy" parent="."]
+copy_mode = 2
+
+[node name="Glitch" type="ColorRect" parent="."]
+visible = false
+material = SubResource("ShaderMaterial_xa0nt")
+custom_minimum_size = Vector2(1920, 1080)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+metadata/_edit_lock_ = true
+
+[node name="Control" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Left" type="TouchScreenButton" parent="Control"]
+position = Vector2(321, 812)
+
+[node name="Right" type="TouchScreenButton" parent="Control"]
+position = Vector2(512, 810)
+
+[node name="Jump" type="TouchScreenButton" parent="Control"]
+position = Vector2(1542, 800)
+
+[node name="Aim" type="TouchScreenButton" parent="Control"]
+position = Vector2(1211, -218)
+scale = Vector2(3.65327, 3.49749)
+
+[node name="Fire" type="TouchScreenButton" parent="Control"]
+position = Vector2(42.0001, -221)
+scale = Vector2(3.65327, 3.49749)
+
+[node name="CrossHair" type="Marker2D" parent="."]
+position = Vector2(1920, 1080)
+
+[node name="Sprite2D" type="Sprite2D" parent="CrossHair"]
+visible = false
+texture = ExtResource("52_mhwhy")
+
+[connection signal="item_selected" from="Menu/Setting/Control/Scroll/Setting/style/Style" to="." method="crouch"]
+[connection signal="item_selected" from="Menu/Setting/Control/Scroll/Setting/Crosshair/OptionButton" to="Menu" method="crosshair"]
+[connection signal="item_selected" from="Menu/Setting/Control/Scroll/Setting/Doubletap/OptionButton" to="Menu" method="double_tap_dash"]
+[connection signal="item_selected" from="Menu/Setting/Control/Scroll/Setting/Shift/OptionButton" to="Menu" method="sprint"]

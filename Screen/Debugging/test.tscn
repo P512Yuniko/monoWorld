@@ -1,0 +1,396 @@
+[gd_scene load_steps=25 format=3 uid="uid://c4i77cahw08tp"]
+
+[ext_resource type="Script" path="res://Screen/Debugging/test.gd" id="1_e46a6"]
+[ext_resource type="PackedScene" uid="uid://ca2rqh3w5ofmr" path="res://Screen/Asset/Entity/Player.tscn" id="2_q2hu8"]
+[ext_resource type="Texture2D" uid="uid://ce8viw6kk7n16" path="res://Screen/Debugging/pikb29.jpg" id="2_qu10t"]
+[ext_resource type="Texture2D" uid="uid://b5gw8wi1isjvn" path="res://Screen/Debugging/vecteezy_modern-city-skyline-vector-illustration_8216001.png" id="3_klcdg"]
+[ext_resource type="Script" path="res://Screen/Debugging/Dmg.gd" id="3_ylcfs"]
+[ext_resource type="Shader" path="res://Script/Function/Shader/flash.gdshader" id="4_bbx23"]
+[ext_resource type="Texture2D" uid="uid://b7026hm6uakbp" path="res://icon.svg" id="7_k2ga6"]
+[ext_resource type="PackedScene" uid="uid://dr35tafc17dqv" path="res://Screen/Asset/Function/Terrain/Water_Body.tscn" id="7_xxt45"]
+[ext_resource type="PackedScene" uid="uid://dggqvrbktvt3j" path="res://Screen/Asset/Entity/Stuff/Crate.tscn" id="8_eu2iy"]
+[ext_resource type="PackedScene" uid="uid://ct1gcxuka24q6" path="res://Screen/Asset/Function/Terrain/NormalDoor.tscn" id="8_wx2yw"]
+[ext_resource type="PackedScene" uid="uid://ijfdtdawlkff" path="res://Screen/Asset/Entity/Stuff/Buy.tscn" id="9_rgm4h"]
+[ext_resource type="PackedScene" uid="uid://d1qvdnxexv6my" path="res://Screen/Asset/Entity/Stuff/Contract.tscn" id="12_c6btc"]
+[ext_resource type="PackedScene" uid="uid://cml06cc45sl15" path="res://Screen/Debugging/Contract.tscn" id="13_kvanl"]
+[ext_resource type="Texture2D" uid="uid://c88jho7v73880" path="res://Asset/UI/Box/1x1mesh.png" id="14_6xt3g"]
+[ext_resource type="PackedScene" uid="uid://dim4wtpu80hvw" path="res://Screen/Asset/Entity/Monster/Ngu/Crate.tscn" id="15_rlunh"]
+[ext_resource type="PackedScene" uid="uid://bae6osrbc6xus" path="res://Screen/Asset/Entity/Monster/Ngu/Ngu_2.tscn" id="16_lsugc"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_iqw4p"]
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_lfyd6"]
+polygon = PackedVector2Array(-30, 1055, 5730, 1055, 5730, 1215, 5890, 1215, 5890, 1375, 6050, 1375, 6050, 1535, 6210, 1535, 6210, 1695, 6370, 1695, 6370, 1855, 6530, 1855, 6530, 2015, 6690, 2015, 6690, 4175, 8930, 4175, 8930, 1055, 12450, -710, 17900, -710, 17900, -9882, 20747, -9916, 21186, 8881, -5393, 9329, -18363, -5471, -18817, -14451, -13893, -14110, -13863, -5924, -9514, -1635, -4953, 177)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ruaxu"]
+size = Vector2(160, 160)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wfdyb"]
+size = Vector2(640, 160)
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_vvf85"]
+friction = 0.5
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_s5js2"]
+shader = ExtResource("4_bbx23")
+shader_parameter/color = Color(0, 0, 0, 1)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6j12l"]
+size = Vector2(128, 389)
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_yu6xt"]
+light_mode = 1
+
+[node name="Test" type="Node2D"]
+visibility_layer = 7
+position = Vector2(1406, 631)
+script = ExtResource("1_e46a6")
+metadata/_edit_horizontal_guides_ = []
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+visible = false
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.1, 0.5)
+motion_mirroring = Vector2(7716, 0)
+
+[node name="Pikb29" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
+modulate = Color(0.588235, 0.588235, 0.588235, 1)
+scale = Vector2(4, 4)
+texture = ExtResource("2_qu10t")
+
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.5, 1)
+motion_mirroring = Vector2(9600, 0)
+
+[node name="VecteezyModern-city-skyline-vector-illustration8216001" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer2"]
+modulate = Color(0.588235, 0.588235, 0.588235, 1)
+position = Vector2(0, 346)
+scale = Vector2(5, 5)
+texture = ExtResource("3_klcdg")
+
+[node name="Player" parent="." instance=ExtResource("2_q2hu8")]
+z_index = -2
+position = Vector2(0, 0)
+
+[node name="Water_Body" parent="." instance=ExtResource("7_xxt45")]
+position = Vector2(2354, 311)
+
+[node name="Marker2D" parent="Water_Body" index="3"]
+position = Vector2(3757, 3122)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." groups=["static"]]
+visibility_layer = 3
+position = Vector2(-3106, -845)
+collision_layer = 127
+collision_mask = 127
+physics_material_override = SubResource("PhysicsMaterial_iqw4p")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+visibility_layer = 3
+polygon = PackedVector2Array(-30, 1055, 5730, 1055, 5730, 1215, 5890, 1215, 5890, 1375, 6050, 1375, 6050, 1535, 6210, 1535, 6210, 1695, 6370, 1695, 6370, 1855, 6530, 1855, 6530, 2015, 6690, 2015, 6690, 2835.13, -5533, 2835, -5535, 6671, 19894, 8294, 19773, 1579, 12019, 1665, 12162, 5371, 9168, 5998, -4245, 5405, -4266, 4472, 8930, 4175, 8930, 1055, 12450, -710, 17900, -710, 17900, -9882, 20747, -9916, 21186, 8881, -5393, 9329, -18363, -5471, -18817, -14451, -13893, -14110, -13863, -5924, -9514, -1635, -4953, 177)
+
+[node name="Polygon2D2" type="Polygon2D" parent="StaticBody2D/CollisionPolygon2D"]
+visibility_layer = 3
+color = Color(0, 0, 0, 1)
+polygon = PackedVector2Array(-30, 1055, 5730, 1055, 5730, 1215, 5890, 1215, 5890, 1375, 6050, 1375, 6050, 1535, 6210, 1535, 6210, 1695, 6370, 1695, 6370, 1855, 6530, 1855, 6530, 2015, 6690, 2015, 6690, 2835.13, -5533, 2835, -5535, 6671, 19894, 8294, 19773, 1579, 12019, 1665, 12162, 5371, 9168, 5998, -4245, 5405, -4266, 4472, 8930, 4175, 8930, 1055, 12450, -710, 17900, -710, 17900, -9882, 20747, -9916, 21186, 8881, -5393, 9329, -18363, -5471, -18817, -14451, -13893, -14110, -13863, -5924, -9514, -1635, -4953, 177)
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="StaticBody2D/CollisionPolygon2D"]
+visibility_layer = 3
+occluder = SubResource("OccluderPolygon2D_lfyd6")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+visibility_layer = 3
+position = Vector2(10930, -945)
+shape = SubResource("RectangleShape2D_ruaxu")
+
+[node name="Sprite2D2" type="ColorRect" parent="StaticBody2D/CollisionShape2D"]
+visibility_layer = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -80.0
+offset_top = -80.0
+offset_right = 48.0
+offset_bottom = 48.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.25, 1.25)
+color = Color(0, 0, 0, 1)
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
+visibility_layer = 3
+position = Vector2(9970, -1265)
+shape = SubResource("RectangleShape2D_ruaxu")
+
+[node name="Sprite2D2" type="ColorRect" parent="StaticBody2D/CollisionShape2D2"]
+visibility_layer = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -80.0
+offset_top = -80.0
+offset_right = 48.0
+offset_bottom = 48.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.25, 1.25)
+color = Color(0, 0, 0, 1)
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D"]
+visibility_layer = 3
+position = Vector2(7890, -1585)
+shape = SubResource("RectangleShape2D_ruaxu")
+
+[node name="Sprite2D2" type="ColorRect" parent="StaticBody2D/CollisionShape2D3"]
+visibility_layer = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -80.0
+offset_top = -80.0
+offset_right = 48.0
+offset_bottom = 48.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.25, 1.25)
+color = Color(0, 0, 0, 1)
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="StaticBody2D"]
+visibility_layer = 3
+position = Vector2(5490, -1585)
+shape = SubResource("RectangleShape2D_ruaxu")
+
+[node name="Sprite2D2" type="ColorRect" parent="StaticBody2D/CollisionShape2D4"]
+visibility_layer = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -80.0
+offset_top = -80.0
+offset_right = 48.0
+offset_bottom = 48.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.25, 1.25)
+color = Color(0, 0, 0, 1)
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="StaticBody2D"]
+visibility_layer = 3
+position = Vector2(3570, -1585)
+shape = SubResource("RectangleShape2D_ruaxu")
+
+[node name="Sprite2D2" type="ColorRect" parent="StaticBody2D/CollisionShape2D5"]
+visibility_layer = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -80.0
+offset_top = -80.0
+offset_right = 48.0
+offset_bottom = 48.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.25, 1.25)
+color = Color(0, 0, 0, 1)
+
+[node name="CollisionShape2D6" type="CollisionShape2D" parent="StaticBody2D"]
+visibility_layer = 3
+position = Vector2(3572, -2865)
+shape = SubResource("RectangleShape2D_ruaxu")
+
+[node name="Sprite2D2" type="ColorRect" parent="StaticBody2D/CollisionShape2D6"]
+visibility_layer = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -80.0
+offset_top = -80.0
+offset_right = 48.0
+offset_bottom = 48.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.25, 1.25)
+color = Color(0, 0, 0, 1)
+
+[node name="CollisionShape2D7" type="CollisionShape2D" parent="StaticBody2D"]
+visibility_layer = 3
+position = Vector2(5253, 461)
+shape = SubResource("RectangleShape2D_wfdyb")
+
+[node name="Sprite2D2" type="ColorRect" parent="StaticBody2D/CollisionShape2D7"]
+visibility_layer = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -320.0
+offset_top = -80.0
+offset_right = -192.0
+offset_bottom = 48.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(5, 1.25)
+color = Color(0, 0, 0, 1)
+
+[node name="RigidBody2D" type="RigidBody2D" parent="."]
+position = Vector2(9424, -1681)
+collision_layer = 23
+collision_mask = 17
+physics_material_override = SubResource("PhysicsMaterial_vvf85")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
+shape = SubResource("RectangleShape2D_ruaxu")
+
+[node name="Sprite2D" type="Sprite2D" parent="RigidBody2D"]
+scale = Vector2(1.25, 1.25)
+texture = ExtResource("7_k2ga6")
+
+[node name="Door" parent="." instance=ExtResource("8_wx2yw")]
+position = Vector2(1837, 209)
+
+[node name="Label" type="Label" parent="Door"]
+z_index = 6
+offset_top = -665.0
+offset_right = 692.0
+offset_bottom = -449.0
+theme_override_font_sizes/font_size = 54
+text = "F to open door and
+spawn mobs  ==>"
+
+[node name="Dmg" type="RigidBody2D" parent="." groups=["ammo", "hack", "target"]]
+visibility_layer = 3
+z_index = -5
+position = Vector2(-2938, 13)
+collision_layer = 0
+collision_mask = 4
+gravity_scale = 0.0
+max_contacts_reported = 30
+contact_monitor = true
+lock_rotation = true
+freeze = true
+freeze_mode = 1
+script = ExtResource("3_ylcfs")
+metadata/_edit_group_ = true
+
+[node name="Body" type="ColorRect" parent="Dmg"]
+visibility_layer = 3
+material = SubResource("ShaderMaterial_s5js2")
+offset_left = -65.0
+offset_top = -195.0
+offset_right = 64.0
+offset_bottom = -22.0
+scale = Vector2(1, 2.25491)
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Timer" type="Timer" parent="Dmg"]
+one_shot = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Dmg"]
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_6j12l")
+
+[node name="Label" type="Label" parent="Dmg"]
+offset_left = -55.0
+offset_top = -308.0
+offset_right = 65.0
+offset_bottom = -173.0
+theme_override_font_sizes/font_size = 96
+text = "00"
+
+[node name="Label3" type="Label" parent="Dmg"]
+offset_left = -39.0
+offset_top = -360.0
+offset_right = 81.0
+offset_bottom = -225.0
+theme_override_font_sizes/font_size = 64
+text = "00"
+
+[node name="Label2" type="Label" parent="Dmg"]
+offset_left = 75.0
+offset_top = -196.0
+offset_right = 374.0
+offset_bottom = 209.0
+theme_override_font_sizes/font_size = 41
+text = "F to
+refill
+ammo"
+
+[node name="Area2D2" type="Area2D" parent="Dmg"]
+collision_layer = 4
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Dmg/Area2D2"]
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_6j12l")
+
+[node name="Area2D" type="Area2D" parent="Dmg"]
+collision_layer = 8
+collision_mask = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Dmg/Area2D"]
+shape = SubResource("RectangleShape2D_6j12l")
+
+[node name="Spawn1" type="Marker2D" parent="."]
+position = Vector2(11352, -1880)
+
+[node name="Spawn2" type="Marker2D" parent="."]
+position = Vector2(13783, -1886)
+
+[node name="Crate" parent="." instance=ExtResource("8_eu2iy")]
+position = Vector2(-2066, 164)
+random = true
+rarity = 5
+restock = 10
+
+[node name="Crate3" parent="." instance=ExtResource("8_eu2iy")]
+position = Vector2(-1766, 164)
+random = true
+rarity = 5
+restock = 10
+
+[node name="Crate4" parent="." instance=ExtResource("8_eu2iy")]
+position = Vector2(-1470, 166)
+random = true
+rarity = 5
+restock = 10
+
+[node name="Crate2" parent="." instance=ExtResource("9_rgm4h")]
+visibility_layer = 3
+position = Vector2(-1073, 149)
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+visible = false
+color = Color(0.501961, 0.501961, 0.501961, 1)
+
+[node name="Drop" parent="." instance=ExtResource("12_c6btc")]
+position = Vector2(459, 175)
+type = 0
+
+[node name="BinhNuoc" parent="." instance=ExtResource("13_kvanl")]
+position = Vector2(-1278, 107)
+
+[node name="Grid" type="TextureRect" parent="."]
+modulate = Color(1, 1, 1, 0.392157)
+visibility_layer = 2
+material = SubResource("CanvasItemMaterial_yu6xt")
+offset_left = -24640.0
+offset_top = -21053.0
+offset_right = -20172.0
+offset_bottom = -17509.0
+scale = Vector2(10, 10)
+mouse_filter = 2
+texture = ExtResource("14_6xt3g")
+stretch_mode = 1
+
+[node name="Crate5" parent="." instance=ExtResource("15_rlunh")]
+position = Vector2(773, 164)
+
+[node name="BinhNuoc2" parent="." instance=ExtResource("16_lsugc")]
+position = Vector2(1233, 71)
+
+[connection signal="body_entered" from="Dmg" to="Dmg" method="_on_body_entered"]
+[connection signal="timeout" from="Dmg/Timer" to="Dmg" method="_on_timer_timeout"]
+[connection signal="area_entered" from="Dmg/Area2D2" to="Dmg" method="_on_area_2d_2_area_entered"]
+
+[editable path="Water_Body"]
